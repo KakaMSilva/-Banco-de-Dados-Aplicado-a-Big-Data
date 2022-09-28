@@ -1,0 +1,1529 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.SparkSession\r\nval spark = SparkSession\r\n  .builder()\r\n  .getOrCreate()\r\nval sqlcontext = spark.sqlContext\r\nsqlcontext",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:16+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.SparkSession\n\u001b[1m\u001b[34mspark\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m = org.apache.spark.sql.SparkSession@4456bf04\n\u001b[1m\u001b[34msqlcontext\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SQLContext\u001b[0m = org.apache.spark.sql.SQLContext@6617d4fd\n\u001b[1m\u001b[34mres2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SQLContext\u001b[0m = org.apache.spark.sql.SQLContext@6617d4fd\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663436338195_1480124103",
+      "id": "paragraph_1663436338195_1480124103",
+      "dateCreated": "2022-09-17T17:38:58+0000",
+      "dateStarted": "2022-09-18T17:42:16+0000",
+      "dateFinished": "2022-09-18T17:42:17+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:280"
+    },
+    {
+      "text": "val sqlcontext = new org.apache.spark.sql.SQLContext(sc)",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:17+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[33mwarning: \u001b[0mthere was one deprecation warning; re-run with -deprecation for details\n\u001b[1m\u001b[34msqlcontext\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SQLContext\u001b[0m = org.apache.spark.sql.SQLContext@41827221\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663448108952_1147023396",
+      "id": "paragraph_1663448108952_1147023396",
+      "dateCreated": "2022-09-17T20:55:08+0000",
+      "dateStarted": "2022-09-18T17:42:17+0000",
+      "dateFinished": "2022-09-18T17:42:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:281"
+    },
+    {
+      "text": "val actorVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/actor.csv\") \r\n                \r\nval addressVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/address.csv\") \r\n                \r\nval categoryVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/category.csv\")    \r\n                \r\nval cityVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/city.csv\") \r\n                \r\nval countryVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/country.csv\") \r\n\r\nval customerVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/customer.csv\") \r\n\r\nval filmVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/film.csv\") \r\n\r\nval film_actorVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/film_actor.csv\")    \r\n                \r\nval film_categoryVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/film_category.csv\") \r\n\r\nval inventoryVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/inventory.csv\")         \r\n                \r\nval languageVar = sqlcontext \r\n                .read \r\n                .option(\"header\",true) \r\n                .option(\"delimiter\",\";\") \r\n                .csv(\"file:/tmp/files/language.csv\") ",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:17+0000",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mactorVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [actor_id: string, first_name: string ... 2 more fields]\n\u001b[1m\u001b[34maddressVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [address_id: string, address: string ... 7 more fields]\n\u001b[1m\u001b[34mcategoryVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [category_id: string, name: string ... 1 more field]\n\u001b[1m\u001b[34mcityVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [city_id: string, city: string ... 2 more fields]\n\u001b[1m\u001b[34mcountryVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [country_id: string, country: string ... 1 more field]\n\u001b[1m\u001b[34mcustomerVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [customer_id: string, store_id: string ... 7 more fields]\n\u001b[1m\u001b[34mfilmVar\u001b[0m: \u001b[1m\u001b[32morg.apache.spa..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=0",
+              "$$hashKey": "object:3318"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=1",
+              "$$hashKey": "object:3319"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=2",
+              "$$hashKey": "object:3320"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=3",
+              "$$hashKey": "object:3321"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=4",
+              "$$hashKey": "object:3322"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=5",
+              "$$hashKey": "object:3323"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=6",
+              "$$hashKey": "object:3324"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=7",
+              "$$hashKey": "object:3325"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=8",
+              "$$hashKey": "object:3326"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=9",
+              "$$hashKey": "object:3327"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=10",
+              "$$hashKey": "object:3328"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663436370356_1010146113",
+      "id": "paragraph_1663436370356_1010146113",
+      "dateCreated": "2022-09-17T17:39:30+0000",
+      "dateStarted": "2022-09-18T17:42:17+0000",
+      "dateFinished": "2022-09-18T17:42:25+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:282"
+    },
+    {
+      "text": "actorVar.createOrReplaceTempView(\"actorTB\")\naddressVar.createOrReplaceTempView(\"addressTB\")\ncategoryVar.createOrReplaceTempView(\"categoryTB\")\ncityVar.createOrReplaceTempView(\"cityTB\")\ncountryVar.createOrReplaceTempView(\"countryTB\")\ncustomerVar.createOrReplaceTempView(\"customerTB\")\nfilmVar.createOrReplaceTempView(\"filmTB\")\nfilm_actorVar.createOrReplaceTempView(\"film_actorTB\")\nfilm_categoryVar.createOrReplaceTempView(\"film_categoryTB\")\ninventoryVar.createOrReplaceTempView(\"inventoryTB\")\nlanguageVar.createOrReplaceTempView(\"languageTB\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:25+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663446843661_1217995488",
+      "id": "paragraph_1663446843661_1217995488",
+      "dateCreated": "2022-09-17T20:34:03+0000",
+      "dateStarted": "2022-09-18T17:42:25+0000",
+      "dateFinished": "2022-09-18T17:42:25+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:283"
+    },
+    {
+      "text": "sqlcontext.sql(\"select * from actorTB\").show()\nsqlcontext.sql(\"select * from addressTB\").show()\nsqlcontext.sql(\"select * from categoryTB\").show()\nsqlcontext.sql(\"select * from cityTB\").show()\nsqlcontext.sql(\"select * from countryTB\").show()\nsqlcontext.sql(\"select * from customerTB\").show()\nsqlcontext.sql(\"select * from filmTB\").show()\nsqlcontext.sql(\"select * from film_actorTB\").show()\nsqlcontext.sql(\"select * from film_categoryTB\").show()\nsqlcontext.sql(\"select * from inventoryTB\").show()\nsqlcontext.sql(\"select * from languageTB\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:26+0000",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+----------+------------+-------------------+\n|actor_id|first_name|   last_name|        last_update|\n+--------+----------+------------+-------------------+\n|       1|  PENELOPE|     GUINESS|2006-02-15 04:34:33|\n|       2|      NICK|    WAHLBERG|2006-02-15 04:34:33|\n|       3|        ED|       CHASE|2006-02-15 04:34:33|\n|       4|  JENNIFER|       DAVIS|2006-02-15 04:34:33|\n|       5|    JOHNNY|LOLLOBRIGIDA|2006-02-15 04:34:33|\n|       6|     BETTE|   NICHOLSON|2006-02-15 04:34:33|\n|       7|     GRACE|      MOSTEL|2006-02-15 04:34:33|\n|       8|   MATTHEW|   JOHANSSON|2006-02-15 04:34:33|\n|       9|       JOE|       SWANK|2006-02-15 04:34:33|\n|      10| CHRISTIAN|       GABLE|2006-02-15 04:34:33|\n|      11|      ZERO|        CAGE|2006-02-15 04:34:33|\n|      12|      KARL|       BERRY|2006-02-15 04:34:33|\n|      13|       UMA|        WOOD|2006-02-15 04:34:33|\n|      14|    VIVIEN|      BERGEN|2006-02-15 04:34:33|\n|      15|      CUBA|     OLIVIER|2006-02-15 04:34:33|\n|      16|      FRED|     COSTNER|2006-02-15 04:34:33|\n|      17|     HELEN|      VOIGHT|2006-02-15 04:34:33|\n|      18|       DAN|        TORN|2006-02-15 04:34:33|\n|      19|       BOB|     FAWCETT|2006-02-15 04:34:33|\n|      20|   LUCILLE|       TRACY|2006-02-15 04:34:33|\n+--------+----------+------------+-------------------+\nonly showing top 20 rows\n\n+----------+--------------------+--------+--------------+-------+-----------+------------+--------------------+-------------------+\n|address_id|             address|address2|      district|city_id|postal_code|       phone|            location|        last_update|\n+----------+--------------------+--------+--------------+-------+-----------+------------+--------------------+-------------------+\n|         1|   47 MySakila Drive|    null|       Alberta|    300|       null|        null|POINT (-112.81856...|2014-09-25 22:30:27|\n|         2|  28 MySQL Boulevard|    null|           QLD|    576|       null|        null|POINT (153.140853...|2014-09-25 22:30:09|\n|         3|   23 Workhaven Lane|    null|       Alberta|    300|       null| 14033335568|POINT (-112.81856...|2014-09-25 22:30:27|\n|         4|1411 Lillydale Drive|    null|           QLD|    576|       null|  6172235589|POINT (153.191309...|2014-09-25 22:30:09|\n|         5|      1913 Hanoi Way|    null|      Nagasaki|    463|      35200| 28303384290|POINT (129.722785...|2014-09-25 22:31:53|\n|         6|    1121 Loja Avenue|    null|    California|    449|      17886|838635286649|POINT (-117.28977...|2014-09-25 22:34:01|\n|         7|   692 Joliet Street|    null|        Attika|     38|      83579|448477190408|POINT (23.7162294...|2014-09-25 22:31:07|\n|         8|    1566 Inegl Manor|    null|      Mandalay|    349|      53561|705814003527|POINT (95.3884368...|2014-09-25 22:32:18|\n|         9|     53 Idfu Parkway|    null|        Nantou|    361|      42399| 10655648674|POINT (120.663878...|2014-09-25 22:33:16|\n|        10|1795 Santiago de ...|    null|         Texas|    295|      18743|860452626434|POINT (-99.507544...|2014-09-25 22:33:55|\n|        11|900 Santiago de C...|    null|Central Serbia|    280|      93896|716571220373|         POINT (0 0)|2014-09-25 22:34:11|\n|        12|      478 Joliet Way|    null|      Hamilton|    200|      77948|657282285970|POINT (175.283339...|2014-09-25 22:32:22|\n|        13|   613 Korolev Drive|    null|        Masqat|    329|      45844|380657522649|POINT (58.5922971...|2014-09-25 22:32:29|\n|        14|      1531 Sal Drive|    null|       Esfahan|    162|      53628|648856936185|POINT (51.6746246...|2014-09-25 22:31:36|\n|        15| 1542 Tarlac Parkway|    null|      Kanagawa|    440|       1027|635297277345|POINT (139.358964...|2014-09-25 22:31:53|\n|        16|    808 Bhopal Manor|    null|       Haryana|    582|      10672|465887807014|         POINT (0 0)|2014-09-25 22:31:30|\n|        17|  270 Amroha Parkway|    null|      Osmaniye|    384|      29610|695479687538|POINT (36.2477824...|2014-09-25 22:33:27|\n|        18|770 Bydgoszcz Avenue|    null|    California|    120|      16266|517338314235|POINT (-121.28106...|2014-09-25 22:33:47|\n|        19|     419 Iligan Lane|    null|Madhya Pradesh|     76|      72878|990911107354|POINT (77.4028938...|2014-09-25 22:31:13|\n|        20|360 Toulouse Parkway|    null|       England|    495|      54308|949312333307|POINT (0.7143363 ...|2014-09-25 22:33:40|\n+----------+--------------------+--------+--------------+-------+-----------+------------+--------------------+-------------------+\nonly showing top 20 rows\n\n+-----------+-----------+-------------------+\n|category_id|       name|        last_update|\n+-----------+-----------+-------------------+\n|          1|     Action|2006-02-15 04:46:27|\n|          2|  Animation|2006-02-15 04:46:27|\n|          3|   Children|2006-02-15 04:46:27|\n|          4|   Classics|2006-02-15 04:46:27|\n|          5|     Comedy|2006-02-15 04:46:27|\n|          6|Documentary|2006-02-15 04:46:27|\n|          7|      Drama|2006-02-15 04:46:27|\n|          8|     Family|2006-02-15 04:46:27|\n|          9|    Foreign|2006-02-15 04:46:27|\n|         10|      Games|2006-02-15 04:46:27|\n|         11|     Horror|2006-02-15 04:46:27|\n|         12|      Music|2006-02-15 04:46:27|\n|         13|        New|2006-02-15 04:46:27|\n|         14|     Sci-Fi|2006-02-15 04:46:27|\n|         15|     Sports|2006-02-15 04:46:27|\n|         16|     Travel|2006-02-15 04:46:27|\n+-----------+-----------+-------------------+\n\n+-------+--------------------+----------+-------------------+\n|city_id|                city|country_id|        last_update|\n+-------+--------------------+----------+-------------------+\n|      1|  A Corua (La Corua)|        87|2006-02-15 04:45:25|\n|      2|                Abha|        82|2006-02-15 04:45:25|\n|      3|           Abu Dhabi|       101|2006-02-15 04:45:25|\n|      4|                Acua|        60|2006-02-15 04:45:25|\n|      5|               Adana|        97|2006-02-15 04:45:25|\n|      6|         Addis Abeba|        31|2006-02-15 04:45:25|\n|      7|                Aden|       107|2006-02-15 04:45:25|\n|      8|               Adoni|        44|2006-02-15 04:45:25|\n|      9|          Ahmadnagar|        44|2006-02-15 04:45:25|\n|     10|            Akishima|        50|2006-02-15 04:45:25|\n|     11|               Akron|       103|2006-02-15 04:45:25|\n|     12|              al-Ayn|       101|2006-02-15 04:45:25|\n|     13|           al-Hawiya|        82|2006-02-15 04:45:25|\n|     14|           al-Manama|        11|2006-02-15 04:45:25|\n|     15|          al-Qadarif|        89|2006-02-15 04:45:25|\n|     16|            al-Qatif|        82|2006-02-15 04:45:25|\n|     17|         Alessandria|        49|2006-02-15 04:45:25|\n|     18|Allappuzha (Allep...|        44|2006-02-15 04:45:25|\n|     19|             Allende|        60|2006-02-15 04:45:25|\n|     20|     Almirante Brown|         6|2006-02-15 04:45:25|\n+-------+--------------------+----------+-------------------+\nonly showing top 20 rows\n\n+----------+--------------+-------------------+\n|country_id|       country|        last_update|\n+----------+--------------+-------------------+\n|         1|   Afghanistan|2006-02-15 03:44:00|\n|         2|       Algeria|2006-02-15 03:44:00|\n|         3|American Samoa|2006-02-15 03:44:00|\n|         4|        Angola|2006-02-15 03:44:00|\n|         5|      Anguilla|2006-02-15 03:44:00|\n|         6|     Argentina|2006-02-15 03:44:00|\n|         7|       Armenia|2006-02-15 03:44:00|\n|         8|     Australia|2006-02-15 03:44:00|\n|         9|       Austria|2006-02-15 03:44:00|\n|        10|    Azerbaijan|2006-02-15 03:44:00|\n|        11|       Bahrain|2006-02-15 03:44:00|\n|        12|    Bangladesh|2006-02-15 03:44:00|\n|        13|       Belarus|2006-02-15 03:44:00|\n|        14|       Bolivia|2006-02-15 03:44:00|\n|        15|        Brazil|2006-02-15 03:44:00|\n|        16|        Brunei|2006-02-15 03:44:00|\n|        17|      Bulgaria|2006-02-15 03:44:00|\n|        18|      Cambodia|2006-02-15 03:44:00|\n|        19|      Cameroon|2006-02-15 03:44:00|\n|        20|        Canada|2006-02-15 03:44:00|\n+----------+--------------+-------------------+\nonly showing top 20 rows\n\n+-----------+--------+----------+---------+--------------------+----------+------+-------------------+-------------------+\n|customer_id|store_id|first_name|last_name|               email|address_id|active|        create_date|        last_update|\n+-----------+--------+----------+---------+--------------------+----------+------+-------------------+-------------------+\n|          1|       1|      MARY|    SMITH|MARY.SMITH@sakila...|         5|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          2|       1|  PATRICIA|  JOHNSON|PATRICIA.JOHNSON@...|         6|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          3|       1|     LINDA| WILLIAMS|LINDA.WILLIAMS@sa...|         7|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          4|       2|   BARBARA|    JONES|BARBARA.JONES@sak...|         8|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          5|       1| ELIZABETH|    BROWN|ELIZABETH.BROWN@s...|         9|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          6|       2|  JENNIFER|    DAVIS|JENNIFER.DAVIS@sa...|        10|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          7|       1|     MARIA|   MILLER|MARIA.MILLER@saki...|        11|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          8|       2|     SUSAN|   WILSON|SUSAN.WILSON@saki...|        12|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|          9|       2|  MARGARET|    MOORE|MARGARET.MOORE@sa...|        13|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         10|       1|   DOROTHY|   TAYLOR|DOROTHY.TAYLOR@sa...|        14|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         11|       2|      LISA| ANDERSON|LISA.ANDERSON@sak...|        15|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         12|       1|     NANCY|   THOMAS|NANCY.THOMAS@saki...|        16|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         13|       2|     KAREN|  JACKSON|KAREN.JACKSON@sak...|        17|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         14|       2|     BETTY|    WHITE|BETTY.WHITE@sakil...|        18|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         15|       1|     HELEN|   HARRIS|HELEN.HARRIS@saki...|        19|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         16|       2|    SANDRA|   MARTIN|SANDRA.MARTIN@sak...|        20|     0|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         17|       1|     DONNA| THOMPSON|DONNA.THOMPSON@sa...|        21|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         18|       2|     CAROL|   GARCIA|CAROL.GARCIA@saki...|        22|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         19|       1|      RUTH| MARTINEZ|RUTH.MARTINEZ@sak...|        23|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n|         20|       2|    SHARON| ROBINSON|SHARON.ROBINSON@s...|        24|     1|2006-02-14 22:04:36|2006-02-15 03:57:20|\n+-----------+--------+----------+---------+--------------------+----------+------+-------------------+-------------------+\nonly showing top 20 rows\n\n+-------+-------------------+--------------------+------------+-----------+--------------------+---------------+-----------+------+----------------+------+--------------------+-------------------+\n|film_id|              title|         description|release_year|language_id|original_language_id|rental_duration|rental_rate|length|replacement_cost|rating|    special_features|        last_update|\n+-------+-------------------+--------------------+------------+-----------+--------------------+---------------+-----------+------+----------------+------+--------------------+-------------------+\n|      1|   ACADEMY DINOSAUR|A Epic Drama of a...|        2006|          1|                   0|              6|       0.99|    86|           20.99|    PG|Deleted Scenes,Be...|2006-02-15 05:03:42|\n|      2|     ACE GOLDFINGER|A Astounding Epis...|        2006|          1|                   0|              3|       4.99|    48|           12.99|     G|Trailers,Deleted ...|2006-02-15 05:03:42|\n|      3|   ADAPTATION HOLES|A Astounding Refl...|        2006|          1|                   0|              7|       2.99|    50|           18.99| NC-17|Trailers,Deleted ...|2006-02-15 05:03:42|\n|      4|   AFFAIR PREJUDICE|A Fanciful Docume...|        2006|          1|                   0|              5|       2.99|   117|           26.99|     G|Commentaries,Behi...|2006-02-15 05:03:42|\n|      5|        AFRICAN EGG|A Fast-Paced Docu...|        2006|          1|                   0|              6|       2.99|   130|           22.99|     G|      Deleted Scenes|2006-02-15 05:03:42|\n|      6|       AGENT TRUMAN|A Intrepid Panora...|        2006|          1|                   0|              3|       2.99|   169|           17.99|    PG|      Deleted Scenes|2006-02-15 05:03:42|\n|      7|    AIRPLANE SIERRA|A Touching Saga o...|        2006|          1|                   0|              6|       4.99|    62|           28.99| PG-13|Trailers,Deleted ...|2006-02-15 05:03:42|\n|      8|    AIRPORT POLLOCK|A Epic Tale of a ...|        2006|          1|                   0|              6|       4.99|    54|           15.99|     R|            Trailers|2006-02-15 05:03:42|\n|      9|      ALABAMA DEVIL|A Thoughtful Pano...|        2006|          1|                   0|              3|       2.99|   114|           21.99| PG-13|Trailers,Deleted ...|2006-02-15 05:03:42|\n|     10|   ALADDIN CALENDAR|A Action-Packed T...|        2006|          1|                   0|              6|       4.99|    63|           24.99| NC-17|Trailers,Deleted ...|2006-02-15 05:03:42|\n|     11|    ALAMO VIDEOTAPE|A Boring Epistle ...|        2006|          1|                   0|              6|       0.99|   126|           16.99|     G|Commentaries,Behi...|2006-02-15 05:03:42|\n|     12|     ALASKA PHANTOM|A Fanciful Saga o...|        2006|          1|                   0|              6|       0.99|   136|           22.99|    PG|Commentaries,Dele...|2006-02-15 05:03:42|\n|     13|        ALI FOREVER|A Action-Packed D...|        2006|          1|                   0|              4|       4.99|   150|           21.99|    PG|Deleted Scenes,Be...|2006-02-15 05:03:42|\n|     14|     ALICE FANTASIA|A Emotional Drama...|        2006|          1|                   0|              6|       0.99|    94|           23.99| NC-17|Trailers,Deleted ...|2006-02-15 05:03:42|\n|     15|       ALIEN CENTER|A Brilliant Drama...|        2006|          1|                   0|              5|       2.99|    46|           10.99| NC-17|Trailers,Commenta...|2006-02-15 05:03:42|\n|     16|    ALLEY EVOLUTION|A Fast-Paced Dram...|        2006|          1|                   0|              6|       2.99|   180|           23.99| NC-17|Trailers,Commenta...|2006-02-15 05:03:42|\n|     17|         ALONE TRIP|A Fast-Paced Char...|        2006|          1|                   0|              3|       0.99|    82|           14.99|     R|Trailers,Behind t...|2006-02-15 05:03:42|\n|     18|      ALTER VICTORY|A Thoughtful Dram...|        2006|          1|                   0|              6|       0.99|    57|           27.99| PG-13|Trailers,Behind t...|2006-02-15 05:03:42|\n|     19|       AMADEUS HOLY|A Emotional Displ...|        2006|          1|                   0|              6|       0.99|   113|           20.99|    PG|Commentaries,Dele...|2006-02-15 05:03:42|\n|     20|AMELIE HELLFIGHTERS|A Boring Drama of...|        2006|          1|                   0|              4|       4.99|    79|           23.99|     R|Commentaries,Dele...|2006-02-15 05:03:42|\n+-------+-------------------+--------------------+------------+-----------+--------------------+---------------+-----------+------+----------------+------+--------------------+-------------------+\nonly showing top 20 rows\n\n+--------+-------+-------------------+\n|actor_id|film_id|        last_update|\n+--------+-------+-------------------+\n|       1|      1|2006-02-15 10:05:03|\n|       1|     23|2006-02-15 10:05:03|\n|       1|     25|2006-02-15 10:05:03|\n|       1|    106|2006-02-15 10:05:03|\n|       1|    140|2006-02-15 10:05:03|\n|       1|    166|2006-02-15 10:05:03|\n|       1|    277|2006-02-15 10:05:03|\n|       1|    361|2006-02-15 10:05:03|\n|       1|    438|2006-02-15 10:05:03|\n|       1|    499|2006-02-15 10:05:03|\n|       1|    506|2006-02-15 10:05:03|\n|       1|    509|2006-02-15 10:05:03|\n|       1|    605|2006-02-15 10:05:03|\n|       1|    635|2006-02-15 10:05:03|\n|       1|    749|2006-02-15 10:05:03|\n|       1|    832|2006-02-15 10:05:03|\n|       1|    939|2006-02-15 10:05:03|\n|       1|    970|2006-02-15 10:05:03|\n|       1|    980|2006-02-15 10:05:03|\n|       2|      3|2006-02-15 10:05:03|\n+--------+-------+-------------------+\nonly showing top 20 rows\n\n+-------+-----------+-------------------+\n|film_id|category_id|        last_update|\n+-------+-----------+-------------------+\n|      1|          6|2006-02-15 10:07:09|\n|      2|         11|2006-02-15 10:07:09|\n|      3|          6|2006-02-15 10:07:09|\n|      4|         11|2006-02-15 10:07:09|\n|      5|          8|2006-02-15 10:07:09|\n|      6|          9|2006-02-15 10:07:09|\n|      7|          5|2006-02-15 10:07:09|\n|      8|         11|2006-02-15 10:07:09|\n|      9|         11|2006-02-15 10:07:09|\n|     10|         15|2006-02-15 10:07:09|\n|     11|          9|2006-02-15 10:07:09|\n|     12|         12|2006-02-15 10:07:09|\n|     13|         11|2006-02-15 10:07:09|\n|     14|          4|2006-02-15 10:07:09|\n|     15|          9|2006-02-15 10:07:09|\n|     16|          9|2006-02-15 10:07:09|\n|     17|         12|2006-02-15 10:07:09|\n|     18|          2|2006-02-15 10:07:09|\n|     19|          1|2006-02-15 10:07:09|\n|     20|         12|2006-02-15 10:07:09|\n+-------+-----------+-------------------+\nonly showing top 20 rows\n\n+------------+-------+--------+-------------------+\n|inventory_id|film_id|store_id|        last_update|\n+------------+-------+--------+-------------------+\n|           1|      1|       1|2006-02-15 04:09:17|\n|           2|      1|       1|2006-02-15 04:09:17|\n|           3|      1|       1|2006-02-15 04:09:17|\n|           4|      1|       1|2006-02-15 04:09:17|\n|           5|      1|       2|2006-02-15 04:09:17|\n|           6|      1|       2|2006-02-15 04:09:17|\n|           7|      1|       2|2006-02-15 04:09:17|\n|           8|      1|       2|2006-02-15 04:09:17|\n|           9|      2|       2|2006-02-15 04:09:17|\n|          10|      2|       2|2006-02-15 04:09:17|\n|          11|      2|       2|2006-02-15 04:09:17|\n|          12|      3|       2|2006-02-15 04:09:17|\n|          13|      3|       2|2006-02-15 04:09:17|\n|          14|      3|       2|2006-02-15 04:09:17|\n|          15|      3|       2|2006-02-15 04:09:17|\n|          16|      4|       1|2006-02-15 04:09:17|\n|          17|      4|       1|2006-02-15 04:09:17|\n|          18|      4|       1|2006-02-15 04:09:17|\n|          19|      4|       1|2006-02-15 04:09:17|\n|          20|      4|       2|2006-02-15 04:09:17|\n+------------+-------+--------+-------------------+\nonly showing top 20 rows\n\n+-----------+--------+-------------------+\n|language_id|    name|        last_update|\n+-----------+--------+-------------------+\n|          1| English|2006-02-15 04:02:19|\n|          2| Italian|2006-02-15 04:02:19|\n|          3|Japanese|2006-02-15 04:02:19|\n|          4|Mandarin|2006-02-15 04:02:19|\n|          5|  French|2006-02-15 04:02:19|\n|          6|  German|2006-02-15 04:02:19|\n+-----------+--------+-------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=11",
+              "$$hashKey": "object:3737"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=12",
+              "$$hashKey": "object:3738"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=13",
+              "$$hashKey": "object:3739"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=14",
+              "$$hashKey": "object:3740"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=15",
+              "$$hashKey": "object:3741"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=16",
+              "$$hashKey": "object:3742"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=17",
+              "$$hashKey": "object:3743"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=18",
+              "$$hashKey": "object:3744"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=19",
+              "$$hashKey": "object:3745"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=20",
+              "$$hashKey": "object:3746"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=21",
+              "$$hashKey": "object:3747"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663442705180_1793180050",
+      "id": "paragraph_1663442705180_1793180050",
+      "dateCreated": "2022-09-17T19:25:05+0000",
+      "dateStarted": "2022-09-18T17:42:26+0000",
+      "dateFinished": "2022-09-18T17:42:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:284"
+    },
+    {
+      "text": "sqlcontext.sql(\"show tables\").show();",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T23:46:16+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+----------------+-----------+\n|database|       tableName|isTemporary|\n+--------+----------------+-----------+\n| default|        actorvar|      false|\n| default|      addressvar|      false|\n| default|     categoryvar|      false|\n| default|         cityvar|      false|\n| default|      countryvar|      false|\n| default|     customervar|      false|\n| default|   film_actorvar|      false|\n| default|film_categoryvar|      false|\n| default|         filmvar|      false|\n| default|    inventoryvar|      false|\n| default|     languagevar|      false|\n|        |         actortb|       true|\n|        |       addresstb|       true|\n|        |      categorytb|       true|\n|        |          citytb|       true|\n|        |       countrytb|       true|\n|        |      customertb|       true|\n|        |    film_actortb|       true|\n|        | film_categorytb|       true|\n|        |          filmtb|       true|\n+--------+----------------+-----------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663446084061_1180565461",
+      "id": "paragraph_1663446084061_1180565461",
+      "dateCreated": "2022-09-17T20:21:24+0000",
+      "dateStarted": "2022-09-18T23:46:16+0000",
+      "dateFinished": "2022-09-18T23:46:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:285"
+    },
+    {
+      "text": "%spark.sql\nselect * from actortb;",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:28+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "actor_id": "string",
+                      "first_name": "string",
+                      "last_name": "string",
+                      "last_update": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "actor_id\tfirst_name\tlast_name\tlast_update\n1\tPENELOPE\tGUINESS\t2006-02-15 04:34:33\n2\tNICK\tWAHLBERG\t2006-02-15 04:34:33\n3\tED\tCHASE\t2006-02-15 04:34:33\n4\tJENNIFER\tDAVIS\t2006-02-15 04:34:33\n5\tJOHNNY\tLOLLOBRIGIDA\t2006-02-15 04:34:33\n6\tBETTE\tNICHOLSON\t2006-02-15 04:34:33\n7\tGRACE\tMOSTEL\t2006-02-15 04:34:33\n8\tMATTHEW\tJOHANSSON\t2006-02-15 04:34:33\n9\tJOE\tSWANK\t2006-02-15 04:34:33\n10\tCHRISTIAN\tGABLE\t2006-02-15 04:34:33\n11\tZERO\tCAGE\t2006-02-15 04:34:33\n12\tKARL\tBERRY\t2006-02-15 04:34:33\n13\tUMA\tWOOD\t2006-02-15 04:34:33\n14\tVIVIEN\tBERGEN\t2006-02-15 04:34:33\n15\tCUBA\tOLIVIER\t2006-02-15 04:34:33\n16\tFRED\tCOSTNER\t2006-02-15 04:34:33\n17\tHELEN\tVOIGHT\t2006-02-15 04:34:33\n18\tDAN\tTORN\t2006-02-15 04:34:33\n19\tBOB\tFAWCETT\t2006-02-15 04:34:33\n20\tLUCILLE\tTRACY\t2006-02-15 04:34:33\n21\tKIRSTEN\tPALTROW\t2006-02-15 04:34:33\n22\tELVIS\tMARX\t2006-02-15 04:34:33\n23\tSANDRA\tKILMER\t2006-02-15 04:34:33\n24\tCAMERON\tSTREEP\t2006-02-15 04:34:33\n25\tKEVIN\tBLOOM\t2006-02-15 04:34:33\n26\tRIP\tCRAWFORD\t2006-02-15 04:34:33\n27\tJULIA\tMCQUEEN\t2006-02-15 04:34:33\n28\tWOODY\tHOFFMAN\t2006-02-15 04:34:33\n29\tALEC\tWAYNE\t2006-02-15 04:34:33\n30\tSANDRA\tPECK\t2006-02-15 04:34:33\n31\tSISSY\tSOBIESKI\t2006-02-15 04:34:33\n32\tTIM\tHACKMAN\t2006-02-15 04:34:33\n33\tMILLA\tPECK\t2006-02-15 04:34:33\n34\tAUDREY\tOLIVIER\t2006-02-15 04:34:33\n35\tJUDY\tDEAN\t2006-02-15 04:34:33\n36\tBURT\tDUKAKIS\t2006-02-15 04:34:33\n37\tVAL\tBOLGER\t2006-02-15 04:34:33\n38\tTOM\tMCKELLEN\t2006-02-15 04:34:33\n39\tGOLDIE\tBRODY\t2006-02-15 04:34:33\n40\tJOHNNY\tCAGE\t2006-02-15 04:34:33\n41\tJODIE\tDEGENERES\t2006-02-15 04:34:33\n42\tTOM\tMIRANDA\t2006-02-15 04:34:33\n43\tKIRK\tJOVOVICH\t2006-02-15 04:34:33\n44\tNICK\tSTALLONE\t2006-02-15 04:34:33\n45\tREESE\tKILMER\t2006-02-15 04:34:33\n46\tPARKER\tGOLDBERG\t2006-02-15 04:34:33\n47\tJULIA\tBARRYMORE\t2006-02-15 04:34:33\n48\tFRANCES\tDAY-LEWIS\t2006-02-15 04:34:33\n49\tANNE\tCRONYN\t2006-02-15 04:34:33\n50\tNATALIE\tHOPKINS\t2006-02-15 04:34:33\n51\tGARY\tPHOENIX\t2006-02-15 04:34:33\n52\tCARMEN\tHUNT\t2006-02-15 04:34:33\n53\tMENA\tTEMPLE\t2006-02-15 04:34:33\n54\tPENELOPE\tPINKETT\t2006-02-15 04:34:33\n55\tFAY\tKILMER\t2006-02-15 04:34:33\n56\tDAN\tHARRIS\t2006-02-15 04:34:33\n57\tJUDE\tCRUISE\t2006-02-15 04:34:33\n58\tCHRISTIAN\tAKROYD\t2006-02-15 04:34:33\n59\tDUSTIN\tTAUTOU\t2006-02-15 04:34:33\n60\tHENRY\tBERRY\t2006-02-15 04:34:33\n61\tCHRISTIAN\tNEESON\t2006-02-15 04:34:33\n62\tJAYNE\tNEESON\t2006-02-15 04:34:33\n63\tCAMERON\tWRAY\t2006-02-15 04:34:33\n64\tRAY\tJOHANSSON\t2006-02-15 04:34:33\n65\tANGELA\tHUDSON\t2006-02-15 04:34:33\n66\tMARY\tTANDY\t2006-02-15 04:34:33\n67\tJESSICA\tBAILEY\t2006-02-15 04:34:33\n68\tRIP\tWINSLET\t2006-02-15 04:34:33\n69\tKENNETH\tPALTROW\t2006-02-15 04:34:33\n70\tMICHELLE\tMCCONAUGHEY\t2006-02-15 04:34:33\n71\tADAM\tGRANT\t2006-02-15 04:34:33\n72\tSEAN\tWILLIAMS\t2006-02-15 04:34:33\n73\tGARY\tPENN\t2006-02-15 04:34:33\n74\tMILLA\tKEITEL\t2006-02-15 04:34:33\n75\tBURT\tPOSEY\t2006-02-15 04:34:33\n76\tANGELINA\tASTAIRE\t2006-02-15 04:34:33\n77\tCARY\tMCCONAUGHEY\t2006-02-15 04:34:33\n78\tGROUCHO\tSINATRA\t2006-02-15 04:34:33\n79\tMAE\tHOFFMAN\t2006-02-15 04:34:33\n80\tRALPH\tCRUZ\t2006-02-15 04:34:33\n81\tSCARLETT\tDAMON\t2006-02-15 04:34:33\n82\tWOODY\tJOLIE\t2006-02-15 04:34:33\n83\tBEN\tWILLIS\t2006-02-15 04:34:33\n84\tJAMES\tPITT\t2006-02-15 04:34:33\n85\tMINNIE\tZELLWEGER\t2006-02-15 04:34:33\n86\tGREG\tCHAPLIN\t2006-02-15 04:34:33\n87\tSPENCER\tPECK\t2006-02-15 04:34:33\n88\tKENNETH\tPESCI\t2006-02-15 04:34:33\n89\tCHARLIZE\tDENCH\t2006-02-15 04:34:33\n90\tSEAN\tGUINESS\t2006-02-15 04:34:33\n91\tCHRISTOPHER\tBERRY\t2006-02-15 04:34:33\n92\tKIRSTEN\tAKROYD\t2006-02-15 04:34:33\n93\tELLEN\tPRESLEY\t2006-02-15 04:34:33\n94\tKENNETH\tTORN\t2006-02-15 04:34:33\n95\tDARYL\tWAHLBERG\t2006-02-15 04:34:33\n96\tGENE\tWILLIS\t2006-02-15 04:34:33\n97\tMEG\tHAWKE\t2006-02-15 04:34:33\n98\tCHRIS\tBRIDGES\t2006-02-15 04:34:33\n99\tJIM\tMOSTEL\t2006-02-15 04:34:33\n100\tSPENCER\tDEPP\t2006-02-15 04:34:33\n101\tSUSAN\tDAVIS\t2006-02-15 04:34:33\n102\tWALTER\tTORN\t2006-02-15 04:34:33\n103\tMATTHEW\tLEIGH\t2006-02-15 04:34:33\n104\tPENELOPE\tCRONYN\t2006-02-15 04:34:33\n105\tSIDNEY\tCROWE\t2006-02-15 04:34:33\n106\tGROUCHO\tDUNST\t2006-02-15 04:34:33\n107\tGINA\tDEGENERES\t2006-02-15 04:34:33\n108\tWARREN\tNOLTE\t2006-02-15 04:34:33\n109\tSYLVESTER\tDERN\t2006-02-15 04:34:33\n110\tSUSAN\tDAVIS\t2006-02-15 04:34:33\n111\tCAMERON\tZELLWEGER\t2006-02-15 04:34:33\n112\tRUSSELL\tBACALL\t2006-02-15 04:34:33\n113\tMORGAN\tHOPKINS\t2006-02-15 04:34:33\n114\tMORGAN\tMCDORMAND\t2006-02-15 04:34:33\n115\tHARRISON\tBALE\t2006-02-15 04:34:33\n116\tDAN\tSTREEP\t2006-02-15 04:34:33\n117\tRENEE\tTRACY\t2006-02-15 04:34:33\n118\tCUBA\tALLEN\t2006-02-15 04:34:33\n119\tWARREN\tJACKMAN\t2006-02-15 04:34:33\n120\tPENELOPE\tMONROE\t2006-02-15 04:34:33\n121\tLIZA\tBERGMAN\t2006-02-15 04:34:33\n122\tSALMA\tNOLTE\t2006-02-15 04:34:33\n123\tJULIANNE\tDENCH\t2006-02-15 04:34:33\n124\tSCARLETT\tBENING\t2006-02-15 04:34:33\n125\tALBERT\tNOLTE\t2006-02-15 04:34:33\n126\tFRANCES\tTOMEI\t2006-02-15 04:34:33\n127\tKEVIN\tGARLAND\t2006-02-15 04:34:33\n128\tCATE\tMCQUEEN\t2006-02-15 04:34:33\n129\tDARYL\tCRAWFORD\t2006-02-15 04:34:33\n130\tGRETA\tKEITEL\t2006-02-15 04:34:33\n131\tJANE\tJACKMAN\t2006-02-15 04:34:33\n132\tADAM\tHOPPER\t2006-02-15 04:34:33\n133\tRICHARD\tPENN\t2006-02-15 04:34:33\n134\tGENE\tHOPKINS\t2006-02-15 04:34:33\n135\tRITA\tREYNOLDS\t2006-02-15 04:34:33\n136\tED\tMANSFIELD\t2006-02-15 04:34:33\n137\tMORGAN\tWILLIAMS\t2006-02-15 04:34:33\n138\tLUCILLE\tDEE\t2006-02-15 04:34:33\n139\tEWAN\tGOODING\t2006-02-15 04:34:33\n140\tWHOOPI\tHURT\t2006-02-15 04:34:33\n141\tCATE\tHARRIS\t2006-02-15 04:34:33\n142\tJADA\tRYDER\t2006-02-15 04:34:33\n143\tRIVER\tDEAN\t2006-02-15 04:34:33\n144\tANGELA\tWITHERSPOON\t2006-02-15 04:34:33\n145\tKIM\tALLEN\t2006-02-15 04:34:33\n146\tALBERT\tJOHANSSON\t2006-02-15 04:34:33\n147\tFAY\tWINSLET\t2006-02-15 04:34:33\n148\tEMILY\tDEE\t2006-02-15 04:34:33\n149\tRUSSELL\tTEMPLE\t2006-02-15 04:34:33\n150\tJAYNE\tNOLTE\t2006-02-15 04:34:33\n151\tGEOFFREY\tHESTON\t2006-02-15 04:34:33\n152\tBEN\tHARRIS\t2006-02-15 04:34:33\n153\tMINNIE\tKILMER\t2006-02-15 04:34:33\n154\tMERYL\tGIBSON\t2006-02-15 04:34:33\n155\tIAN\tTANDY\t2006-02-15 04:34:33\n156\tFAY\tWOOD\t2006-02-15 04:34:33\n157\tGRETA\tMALDEN\t2006-02-15 04:34:33\n158\tVIVIEN\tBASINGER\t2006-02-15 04:34:33\n159\tLAURA\tBRODY\t2006-02-15 04:34:33\n160\tCHRIS\tDEPP\t2006-02-15 04:34:33\n161\tHARVEY\tHOPE\t2006-02-15 04:34:33\n162\tOPRAH\tKILMER\t2006-02-15 04:34:33\n163\tCHRISTOPHER\tWEST\t2006-02-15 04:34:33\n164\tHUMPHREY\tWILLIS\t2006-02-15 04:34:33\n165\tAL\tGARLAND\t2006-02-15 04:34:33\n166\tNICK\tDEGENERES\t2006-02-15 04:34:33\n167\tLAURENCE\tBULLOCK\t2006-02-15 04:34:33\n168\tWILL\tWILSON\t2006-02-15 04:34:33\n169\tKENNETH\tHOFFMAN\t2006-02-15 04:34:33\n170\tMENA\tHOPPER\t2006-02-15 04:34:33\n171\tOLYMPIA\tPFEIFFER\t2006-02-15 04:34:33\n172\tGROUCHO\tWILLIAMS\t2006-02-15 04:34:33\n173\tALAN\tDREYFUSS\t2006-02-15 04:34:33\n174\tMICHAEL\tBENING\t2006-02-15 04:34:33\n175\tWILLIAM\tHACKMAN\t2006-02-15 04:34:33\n176\tJON\tCHASE\t2006-02-15 04:34:33\n177\tGENE\tMCKELLEN\t2006-02-15 04:34:33\n178\tLISA\tMONROE\t2006-02-15 04:34:33\n179\tED\tGUINESS\t2006-02-15 04:34:33\n180\tJEFF\tSILVERSTONE\t2006-02-15 04:34:33\n181\tMATTHEW\tCARREY\t2006-02-15 04:34:33\n182\tDEBBIE\tAKROYD\t2006-02-15 04:34:33\n183\tRUSSELL\tCLOSE\t2006-02-15 04:34:33\n184\tHUMPHREY\tGARLAND\t2006-02-15 04:34:33\n185\tMICHAEL\tBOLGER\t2006-02-15 04:34:33\n186\tJULIA\tZELLWEGER\t2006-02-15 04:34:33\n187\tRENEE\tBALL\t2006-02-15 04:34:33\n188\tROCK\tDUKAKIS\t2006-02-15 04:34:33\n189\tCUBA\tBIRCH\t2006-02-15 04:34:33\n190\tAUDREY\tBAILEY\t2006-02-15 04:34:33\n191\tGREGORY\tGOODING\t2006-02-15 04:34:33\n192\tJOHN\tSUVARI\t2006-02-15 04:34:33\n193\tBURT\tTEMPLE\t2006-02-15 04:34:33\n194\tMERYL\tALLEN\t2006-02-15 04:34:33\n195\tJAYNE\tSILVERSTONE\t2006-02-15 04:34:33\n196\tBELA\tWALKEN\t2006-02-15 04:34:33\n197\tREESE\tWEST\t2006-02-15 04:34:33\n198\tMARY\tKEITEL\t2006-02-15 04:34:33\n199\tJULIA\tFAWCETT\t2006-02-15 04:34:33\n200\tTHORA\tTEMPLE\t2006-02-15 04:34:33\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=22",
+              "$$hashKey": "object:3939"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663449095122_1266747363",
+      "id": "paragraph_1663449095122_1266747363",
+      "dateCreated": "2022-09-17T21:11:35+0000",
+      "dateStarted": "2022-09-18T17:42:28+0000",
+      "dateFinished": "2022-09-18T17:42:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:286"
+    },
+    {
+      "text": "actorVar.printSchema()\naddressVar.printSchema()\ncategoryVar.printSchema()\ncityVar.printSchema()\ncountryVar.printSchema()\ncustomerVar.printSchema()\nfilmVar.printSchema()\nfilm_actorVar.printSchema()\nfilm_categoryVar.printSchema()\ninventoryVar.printSchema()\nlanguageVar.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:29+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- actor_id: string (nullable = true)\n |-- first_name: string (nullable = true)\n |-- last_name: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- address_id: string (nullable = true)\n |-- address: string (nullable = true)\n |-- address2: string (nullable = true)\n |-- district: string (nullable = true)\n |-- city_id: string (nullable = true)\n |-- postal_code: string (nullable = true)\n |-- phone: string (nullable = true)\n |-- location: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- category_id: string (nullable = true)\n |-- name: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- city_id: string (nullable = true)\n |-- city: string (nullable = true)\n |-- country_id: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- country_id: string (nullable = true)\n |-- country: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- customer_id: string (nullable = true)\n |-- store_id: string (nullable = true)\n |-- first_name: string (nullable = true)\n |-- last_name: string (nullable = true)\n |-- email: string (nullable = true)\n |-- address_id: string (nullable = true)\n |-- active: string (nullable = true)\n |-- create_date: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- film_id: string (nullable = true)\n |-- title: string (nullable = true)\n |-- description: string (nullable = true)\n |-- release_year: string (nullable = true)\n |-- language_id: string (nullable = true)\n |-- original_language_id: string (nullable = true)\n |-- rental_duration: string (nullable = true)\n |-- rental_rate: string (nullable = true)\n |-- length: string (nullable = true)\n |-- replacement_cost: string (nullable = true)\n |-- rating: string (nullable = true)\n |-- special_features: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- actor_id: string (nullable = true)\n |-- film_id: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- film_id: string (nullable = true)\n |-- category_id: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- inventory_id: string (nullable = true)\n |-- film_id: string (nullable = true)\n |-- store_id: string (nullable = true)\n |-- last_update: string (nullable = true)\n\nroot\n |-- language_id: string (nullable = true)\n |-- name: string (nullable = true)\n |-- last_update: string (nullable = true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663449765827_606484315",
+      "id": "paragraph_1663449765827_606484315",
+      "dateCreated": "2022-09-17T21:22:45+0000",
+      "dateStarted": "2022-09-18T17:42:29+0000",
+      "dateFinished": "2022-09-18T17:42:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:287"
+    },
+    {
+      "text": "%spark.sql\r\nCREATE TABLE ActorVar (\r\n   actor_id BIGINT,\r\n   first_name STRING,\r\n   last_name STRING,\r\n   last_update STRING\r\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:29+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663449853764_1025568066",
+      "id": "paragraph_1663449853764_1025568066",
+      "dateCreated": "2022-09-17T21:24:13+0000",
+      "dateStarted": "2022-09-18T17:42:29+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:288"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE AddressVar (\n   address_id BIGINT,\n   address STRING,\n   address2 STRING,\n   district STRING,\n   city_id BIGINT,\n   postal_code STRING,\n   phone STRING,\n   location STRING,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455216707_1941685319",
+      "id": "paragraph_1663455216707_1941685319",
+      "dateCreated": "2022-09-17T22:53:36+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:289"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE CategoryVar (\n   category_id BIGINT,\n   name  STRING,\n   last_update  STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455233790_1637366697",
+      "id": "paragraph_1663455233790_1637366697",
+      "dateCreated": "2022-09-17T22:53:53+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:290"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE CityVar (\n   city_id BIGINT,\n   city STRING,\n   country_id BIGINT,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455245517_702024509",
+      "id": "paragraph_1663455245517_702024509",
+      "dateCreated": "2022-09-17T22:54:05+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:291"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE countryVar (\n   country_id BIGINT,\n   country STRING,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455251421_2059093174",
+      "id": "paragraph_1663455251421_2059093174",
+      "dateCreated": "2022-09-17T22:54:11+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:292"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE CustomerVar (\n   customer_id BIGINT,\n   store_id BIGINT,\n   first_name STRING,\n   last_name STRING,\n   email STRING,\n   address_id BIGINT,\n   active STRING,\n   create_date STRING,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455263511_2112652545",
+      "id": "paragraph_1663455263511_2112652545",
+      "dateCreated": "2022-09-17T22:54:23+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:293"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE FilmVar (\n   film_id BIGINT,\n   title STRING,\n   description STRING,\n   release_year STRING,\n   language_id BIGINT,\n   original_language_id BIGINT,\n   rental_duration STRING,\n   rental_rate STRING,\n   length STRING,\n   replacement_cost STRING,\n   rating STRING,\n   special_features STRING,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455268412_872798956",
+      "id": "paragraph_1663455268412_872798956",
+      "dateCreated": "2022-09-17T22:54:28+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:294"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE Film_actorVar (\n   actor_id BIGINT,\n   film_id BIGINT,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455310789_1009768895",
+      "id": "paragraph_1663455310789_1009768895",
+      "dateCreated": "2022-09-17T22:55:10+0000",
+      "dateStarted": "2022-09-18T17:42:30+0000",
+      "dateFinished": "2022-09-18T17:42:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:295"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE Film_categoryVar (\n   film_id BIGINT,\n   category_id BIGINT,\n   last_update STRING\n) USING orc\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:31+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455314837_935035516",
+      "id": "paragraph_1663455314837_935035516",
+      "dateCreated": "2022-09-17T22:55:14+0000",
+      "dateStarted": "2022-09-18T17:42:31+0000",
+      "dateFinished": "2022-09-18T17:42:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:296"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE InventoryVar (\n   inventory_id BIGINT,\n   film_id BIGINT,\n   store_id BIGINT,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:31+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663460180297_924547714",
+      "id": "paragraph_1663460180297_924547714",
+      "dateCreated": "2022-09-18T00:16:20+0000",
+      "dateStarted": "2022-09-18T17:42:31+0000",
+      "dateFinished": "2022-09-18T17:42:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:297"
+    },
+    {
+      "text": "%spark.sql\nCREATE TABLE LanguageVar (\n   language_id BIGINT,\n   name STRING,\n   last_update STRING\n) USING orc",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T17:42:31+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663460209769_190512563",
+      "id": "paragraph_1663460209769_190512563",
+      "dateCreated": "2022-09-18T00:16:49+0000",
+      "dateStarted": "2022-09-18T17:42:31+0000",
+      "dateFinished": "2022-09-18T17:42:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:298"
+    },
+    {
+      "text": "sqlcontext.sql(\"insert into ActorVar select * from actorTB\"); \nsqlcontext.sql(\"insert into AddressVar select * from addressTB\"); \nsqlcontext.sql(\"insert into CategoryVar select * from categoryTB\"); \nsqlcontext.sql(\"insert into CityVar select * from cityTB\"); \nsqlcontext.sql(\"insert into CountryVar select * from countryTB\"); \nsqlcontext.sql(\"insert into CustomerVar select * from customerTB\"); \nsqlcontext.sql(\"insert into FilmVar select * from filmTB\"); \nsqlcontext.sql(\"insert into Film_actorVar select * from film_actorTB\"); \nsqlcontext.sql(\"insert into Film_categoryVar select * from film_categoryTB\"); \nsqlcontext.sql(\"insert into InventoryVar select * from inventoryTB\"); \nsqlcontext.sql(\"insert into LanguageVar select * from languageTB\"); ",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-18T18:55:38+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=24",
+              "$$hashKey": "object:5186"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=25",
+              "$$hashKey": "object:5187"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=26",
+              "$$hashKey": "object:5188"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=27",
+              "$$hashKey": "object:5189"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=28",
+              "$$hashKey": "object:5190"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=29",
+              "$$hashKey": "object:5191"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=30",
+              "$$hashKey": "object:5192"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=31",
+              "$$hashKey": "object:5193"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=32",
+              "$$hashKey": "object:5194"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=33",
+              "$$hashKey": "object:5195"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=34",
+              "$$hashKey": "object:5196"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663463311892_148699580",
+      "id": "paragraph_1663463311892_148699580",
+      "dateCreated": "2022-09-18T01:08:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:299",
+      "dateFinished": "2022-09-18T18:55:42+0000",
+      "dateStarted": "2022-09-18T18:55:38+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres8\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.sql\nselect * from FilmVar limit 10 ",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-19T02:05:32+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "actor_id": "string",
+                      "film_id": "string",
+                      "last_update": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=36",
+              "$$hashKey": "object:6357"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663455187330_725759449",
+      "id": "paragraph_1663455187330_725759449",
+      "dateCreated": "2022-09-17T22:53:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:300",
+      "dateFinished": "2022-09-19T02:05:33+0000",
+      "dateStarted": "2022-09-19T02:05:32+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "film_id\ttitle\tdescription\trelease_year\tlanguage_id\toriginal_language_id\trental_duration\trental_rate\tlength\treplacement_cost\trating\tspecial_features\tlast_update\n1\tACADEMY DINOSAUR\tA Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies\t2006\t1\t0\t6\t0.99\t86\t20.99\tPG\tDeleted Scenes,Behind the Scenes\t2006-02-15 05:03:42\n2\tACE GOLDFINGER\tA Astounding Epistle of a Database Administrator And a Explorer who must Find a Car in Ancient China\t2006\t1\t0\t3\t4.99\t48\t12.99\tG\tTrailers,Deleted Scenes\t2006-02-15 05:03:42\n3\tADAPTATION HOLES\tA Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory\t2006\t1\t0\t7\t2.99\t50\t18.99\tNC-17\tTrailers,Deleted Scenes\t2006-02-15 05:03:42\n4\tAFFAIR PREJUDICE\tA Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank\t2006\t1\t0\t5\t2.99\t117\t26.99\tG\tCommentaries,Behind the Scenes\t2006-02-15 05:03:42\n5\tAFRICAN EGG\tA Fast-Paced Documentary of a Pastry Chef And a Dentist who must Pursue a Forensic Psychologist in The Gulf of Mexico\t2006\t1\t0\t6\t2.99\t130\t22.99\tG\tDeleted Scenes\t2006-02-15 05:03:42\n6\tAGENT TRUMAN\tA Intrepid Panorama of a Robot And a Boy who must Escape a Sumo Wrestler in Ancient China\t2006\t1\t0\t3\t2.99\t169\t17.99\tPG\tDeleted Scenes\t2006-02-15 05:03:42\n7\tAIRPLANE SIERRA\tA Touching Saga of a Hunter And a Butler who must Discover a Butler in A Jet Boat\t2006\t1\t0\t6\t4.99\t62\t28.99\tPG-13\tTrailers,Deleted Scenes\t2006-02-15 05:03:42\n8\tAIRPORT POLLOCK\tA Epic Tale of a Moose And a Girl who must Confront a Monkey in Ancient India\t2006\t1\t0\t6\t4.99\t54\t15.99\tR\tTrailers\t2006-02-15 05:03:42\n9\tALABAMA DEVIL\tA Thoughtful Panorama of a Database Administrator And a Mad Scientist who must Outgun a Mad Scientist in A Jet Boat\t2006\t1\t0\t3\t2.99\t114\t21.99\tPG-13\tTrailers,Deleted Scenes\t2006-02-15 05:03:42\n10\tALADDIN CALENDAR\tA Action-Packed Tale of a Man And a Lumberjack who must Reach a Feminist in Ancient China\t2006\t1\t0\t6\t4.99\t63\t24.99\tNC-17\tTrailers,Deleted Scenes\t2006-02-15 05:03:42\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "language_id": "string",
+                      "Resultado": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=97",
+              "$$hashKey": "object:39785"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=98",
+              "$$hashKey": "object:39786"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=99",
+              "$$hashKey": "object:39787"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=100",
+              "$$hashKey": "object:39788"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=101",
+              "$$hashKey": "object:39789"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663557040876_1683548995",
+      "id": "paragraph_1663557040876_1683548995",
+      "dateCreated": "2022-09-19T03:10:40+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:28029",
+      "text": "%spark.sql\r\nselect language_id, count(*) as Resultado from FilmVar \r\nGROUP BY language_id",
+      "dateUpdated": "2022-09-19T03:51:38+0000",
+      "dateFinished": "2022-09-19T03:51:39+0000",
+      "dateStarted": "2022-09-19T03:51:38+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "language_id\tResultado\n1\t1000\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.sql\nselect FilmVar.title, LanguageVar.name \nfrom FilmVar join LanguageVar\non LanguageVar.language_id = FilmVar.language_id",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-19T03:40:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=95",
+              "$$hashKey": "object:38823"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=96",
+              "$$hashKey": "object:38824"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663558843314_1439890254",
+      "id": "paragraph_1663558843314_1439890254",
+      "dateCreated": "2022-09-19T03:40:43+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:38624",
+      "dateFinished": "2022-09-19T03:40:51+0000",
+      "dateStarted": "2022-09-19T03:40:51+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "title\tname\nACADEMY DINOSAUR\tEnglish\nACE GOLDFINGER\tEnglish\nADAPTATION HOLES\tEnglish\nAFFAIR PREJUDICE\tEnglish\nAFRICAN EGG\tEnglish\nAGENT TRUMAN\tEnglish\nAIRPLANE SIERRA\tEnglish\nAIRPORT POLLOCK\tEnglish\nALABAMA DEVIL\tEnglish\nALADDIN CALENDAR\tEnglish\nALAMO VIDEOTAPE\tEnglish\nALASKA PHANTOM\tEnglish\nALI FOREVER\tEnglish\nALICE FANTASIA\tEnglish\nALIEN CENTER\tEnglish\nALLEY EVOLUTION\tEnglish\nALONE TRIP\tEnglish\nALTER VICTORY\tEnglish\nAMADEUS HOLY\tEnglish\nAMELIE HELLFIGHTERS\tEnglish\nAMERICAN CIRCUS\tEnglish\nAMISTAD MIDSUMMER\tEnglish\nANACONDA CONFESSIONS\tEnglish\nANALYZE HOOSIERS\tEnglish\nANGELS LIFE\tEnglish\nANNIE IDENTITY\tEnglish\nANONYMOUS HUMAN\tEnglish\nANTHEM LUKE\tEnglish\nANTITRUST TOMATOES\tEnglish\nANYTHING SAVANNAH\tEnglish\nAPACHE DIVINE\tEnglish\nAPOCALYPSE FLAMINGOS\tEnglish\nAPOLLO TEEN\tEnglish\nARABIA DOGMA\tEnglish\nARACHNOPHOBIA ROLLERCOASTER\tEnglish\nARGONAUTS TOWN\tEnglish\nARIZONA BANG\tEnglish\nARK RIDGEMONT\tEnglish\nARMAGEDDON LOST\tEnglish\nARMY FLINTSTONES\tEnglish\nARSENIC INDEPENDENCE\tEnglish\nARTIST COLDBLOODED\tEnglish\nATLANTIS CAUSE\tEnglish\nATTACKS HATE\tEnglish\nATTRACTION NEWTON\tEnglish\nAUTUMN CROW\tEnglish\nBABY HALL\tEnglish\nBACKLASH UNDEFEATED\tEnglish\nBADMAN DAWN\tEnglish\nBAKED CLEOPATRA\tEnglish\nBALLOON HOMEWARD\tEnglish\nBALLROOM MOCKINGBIRD\tEnglish\nBANG KWAI\tEnglish\nBANGER PINOCCHIO\tEnglish\nBARBARELLA STREETCAR\tEnglish\nBAREFOOT MANCHURIAN\tEnglish\nBASIC EASY\tEnglish\nBEACH HEARTBREAKERS\tEnglish\nBEAR GRACELAND\tEnglish\nBEAST HUNCHBACK\tEnglish\nBEAUTY GREASE\tEnglish\nBED HIGHBALL\tEnglish\nBEDAZZLED MARRIED\tEnglish\nBEETHOVEN EXORCIST\tEnglish\nBEHAVIOR RUNAWAY\tEnglish\nBENEATH RUSH\tEnglish\nBERETS AGENT\tEnglish\nBETRAYED REAR\tEnglish\nBEVERLY OUTLAW\tEnglish\nBIKINI BORROWERS\tEnglish\nBILKO ANONYMOUS\tEnglish\nBILL OTHERS\tEnglish\nBINGO TALENTED\tEnglish\nBIRCH ANTITRUST\tEnglish\nBIRD INDEPENDENCE\tEnglish\nBIRDCAGE CASPER\tEnglish\nBIRDS PERDITION\tEnglish\nBLACKOUT PRIVATE\tEnglish\nBLADE POLISH\tEnglish\nBLANKET BEVERLY\tEnglish\nBLINDNESS GUN\tEnglish\nBLOOD ARGONAUTS\tEnglish\nBLUES INSTINCT\tEnglish\nBOILED DARES\tEnglish\nBONNIE HOLOCAUST\tEnglish\nBOOGIE AMELIE\tEnglish\nBOONDOCK BALLROOM\tEnglish\nBORN SPINAL\tEnglish\nBORROWERS BEDAZZLED\tEnglish\nBOULEVARD MOB\tEnglish\nBOUND CHEAPER\tEnglish\nBOWFINGER GABLES\tEnglish\nBRANNIGAN SUNRISE\tEnglish\nBRAVEHEART HUMAN\tEnglish\nBREAKFAST GOLDFINGER\tEnglish\nBREAKING HOME\tEnglish\nBRIDE INTRIGUE\tEnglish\nBRIGHT ENCOUNTERS\tEnglish\nBRINGING HYSTERICAL\tEnglish\nBROOKLYN DESERT\tEnglish\nBROTHERHOOD BLANKET\tEnglish\nBUBBLE GROSSE\tEnglish\nBUCKET BROTHERHOOD\tEnglish\nBUGSY SONG\tEnglish\nBULL SHAWSHANK\tEnglish\nBULWORTH COMMANDMENTS\tEnglish\nBUNCH MINDS\tEnglish\nBUTCH PANTHER\tEnglish\nBUTTERFLY CHOCOLAT\tEnglish\nCABIN FLASH\tEnglish\nCADDYSHACK JEDI\tEnglish\nCALENDAR GUNFIGHT\tEnglish\nCALIFORNIA BIRDS\tEnglish\nCAMELOT VACATION\tEnglish\nCAMPUS REMEMBER\tEnglish\nCANDIDATE PERDITION\tEnglish\nCANDLES GRAPES\tEnglish\nCANYON STOCK\tEnglish\nCAPER MOTIONS\tEnglish\nCARIBBEAN LIBERTY\tEnglish\nCAROL TEXAS\tEnglish\nCARRIE BUNCH\tEnglish\nCASABLANCA SUPER\tEnglish\nCASPER DRAGONFLY\tEnglish\nCASSIDY WYOMING\tEnglish\nCASUALTIES ENCINO\tEnglish\nCAT CONEHEADS\tEnglish\nCATCH AMISTAD\tEnglish\nCAUSE DATE\tEnglish\nCELEBRITY HORN\tEnglish\nCENTER DINOSAUR\tEnglish\nCHAINSAW UPTOWN\tEnglish\nCHAMBER ITALIAN\tEnglish\nCHAMPION FLATLINERS\tEnglish\nCHANCE RESURRECTION\tEnglish\nCHAPLIN LICENSE\tEnglish\nCHARADE DUFFEL\tEnglish\nCHARIOTS CONSPIRACY\tEnglish\nCHASING FIGHT\tEnglish\nCHEAPER CLYDE\tEnglish\nCHICAGO NORTH\tEnglish\nCHICKEN HELLFIGHTERS\tEnglish\nCHILL LUCK\tEnglish\nCHINATOWN GLADIATOR\tEnglish\nCHISUM BEHAVIOR\tEnglish\nCHITTY LOCK\tEnglish\nCHOCOLAT HARRY\tEnglish\nCHOCOLATE DUCK\tEnglish\nCHRISTMAS MOONSHINE\tEnglish\nCIDER DESIRE\tEnglish\nCINCINATTI WHISPERER\tEnglish\nCIRCUS YOUTH\tEnglish\nCITIZEN SHREK\tEnglish\nCLASH FREDDY\tEnglish\nCLEOPATRA DEVIL\tEnglish\nCLERKS ANGELS\tEnglish\nCLOCKWORK PARADISE\tEnglish\nCLONES PINOCCHIO\tEnglish\nCLOSER BANG\tEnglish\nCLUB GRAFFITI\tEnglish\nCLUE GRAIL\tEnglish\nCLUELESS BUCKET\tEnglish\nCLYDE THEORY\tEnglish\nCOAST RAINBOW\tEnglish\nCOLDBLOODED DARLING\tEnglish\nCOLOR PHILADELPHIA\tEnglish\nCOMA HEAD\tEnglish\nCOMANCHEROS ENEMY\tEnglish\nCOMFORTS RUSH\tEnglish\nCOMMAND DARLING\tEnglish\nCOMMANDMENTS EXPRESS\tEnglish\nCONEHEADS SMOOCHY\tEnglish\nCONFESSIONS MAGUIRE\tEnglish\nCONFIDENTIAL INTERVIEW\tEnglish\nCONFUSED CANDLES\tEnglish\nCONGENIALITY QUEST\tEnglish\nCONNECTICUT TRAMP\tEnglish\nCONNECTION MICROCOSMOS\tEnglish\nCONQUERER NUTS\tEnglish\nCONSPIRACY SPIRIT\tEnglish\nCONTACT ANONYMOUS\tEnglish\nCONTROL ANTHEM\tEnglish\nCONVERSATION DOWNHILL\tEnglish\nCORE SUIT\tEnglish\nCOWBOY DOOM\tEnglish\nCRAFT OUTFIELD\tEnglish\nCRANES RESERVOIR\tEnglish\nCRAZY HOME\tEnglish\nCREATURES SHAKESPEARE\tEnglish\nCREEPERS KANE\tEnglish\nCROOKED FROGMEN\tEnglish\nCROSSING DIVORCE\tEnglish\nCROSSROADS CASUALTIES\tEnglish\nCROW GREASE\tEnglish\nCROWDS TELEMARK\tEnglish\nCRUELTY UNFORGIVEN\tEnglish\nCRUSADE HONEY\tEnglish\nCRYSTAL BREAKING\tEnglish\nCUPBOARD SINNERS\tEnglish\nCURTAIN VIDEOTAPE\tEnglish\nCYCLONE FAMILY\tEnglish\nDADDY PITTSBURGH\tEnglish\nDAISY MENAGERIE\tEnglish\nDALMATIONS SWEDEN\tEnglish\nDANCES NONE\tEnglish\nDANCING FEVER\tEnglish\nDANGEROUS UPTOWN\tEnglish\nDARES PLUTO\tEnglish\nDARKNESS WAR\tEnglish\nDARKO DORADO\tEnglish\nDARLING BREAKING\tEnglish\nDARN FORRESTER\tEnglish\nDATE SPEED\tEnglish\nDAUGHTER MADIGAN\tEnglish\nDAWN POND\tEnglish\nDAY UNFAITHFUL\tEnglish\nDAZED PUNK\tEnglish\nDECEIVER BETRAYED\tEnglish\nDEEP CRUSADE\tEnglish\nDEER VIRGINIAN\tEnglish\nDELIVERANCE MULHOLLAND\tEnglish\nDESERT POSEIDON\tEnglish\nDESIRE ALIEN\tEnglish\nDESPERATE TRAINSPOTTING\tEnglish\nDESTINATION JERK\tEnglish\nDESTINY SATURDAY\tEnglish\nDETAILS PACKER\tEnglish\nDETECTIVE VISION\tEnglish\nDEVIL DESIRE\tEnglish\nDIARY PANIC\tEnglish\nDINOSAUR SECRETARY\tEnglish\nDIRTY ACE\tEnglish\nDISCIPLE MOTHER\tEnglish\nDISTURBING SCARFACE\tEnglish\nDIVIDE MONSTER\tEnglish\nDIVINE RESURRECTION\tEnglish\nDIVORCE SHINING\tEnglish\nDOCTOR GRAIL\tEnglish\nDOGMA FAMILY\tEnglish\nDOLLS RAGE\tEnglish\nDONNIE ALLEY\tEnglish\nDOOM DANCING\tEnglish\nDOORS PRESIDENT\tEnglish\nDORADO NOTTING\tEnglish\nDOUBLE WRATH\tEnglish\nDOUBTFIRE LABYRINTH\tEnglish\nDOWNHILL ENOUGH\tEnglish\nDOZEN LION\tEnglish\nDRACULA CRYSTAL\tEnglish\nDRAGON SQUAD\tEnglish\nDRAGONFLY STRANGERS\tEnglish\nDREAM PICKUP\tEnglish\nDRIFTER COMMANDMENTS\tEnglish\nDRIVER ANNIE\tEnglish\nDRIVING POLISH\tEnglish\nDROP WATERFRONT\tEnglish\nDRUMLINE CYCLONE\tEnglish\nDRUMS DYNAMITE\tEnglish\nDUCK RACER\tEnglish\nDUDE BLINDNESS\tEnglish\nDUFFEL APOCALYPSE\tEnglish\nDUMBO LUST\tEnglish\nDURHAM PANKY\tEnglish\nDWARFS ALTER\tEnglish\nDYING MAKER\tEnglish\nDYNAMITE TARZAN\tEnglish\nEAGLES PANKY\tEnglish\nEARLY HOME\tEnglish\nEARRING INSTINCT\tEnglish\nEARTH VISION\tEnglish\nEASY GLADIATOR\tEnglish\nEDGE KISSING\tEnglish\nEFFECT GLADIATOR\tEnglish\nEGG IGBY\tEnglish\nEGYPT TENENBAUMS\tEnglish\nELEMENT FREDDY\tEnglish\nELEPHANT TROJAN\tEnglish\nELF MURDER\tEnglish\nELIZABETH SHANE\tEnglish\nEMPIRE MALKOVICH\tEnglish\nENCINO ELF\tEnglish\nENCOUNTERS CURTAIN\tEnglish\nENDING CROWDS\tEnglish\nENEMY ODDS\tEnglish\nENGLISH BULWORTH\tEnglish\nENOUGH RAGING\tEnglish\nENTRAPMENT SATISFACTION\tEnglish\nESCAPE METROPOLIS\tEnglish\nEVE RESURRECTION\tEnglish\nEVERYONE CRAFT\tEnglish\nEVOLUTION ALTER\tEnglish\nEXCITEMENT EVE\tEnglish\nEXORCIST STING\tEnglish\nEXPECATIONS NATURAL\tEnglish\nEXPENDABLE STALLION\tEnglish\nEXPRESS LONELY\tEnglish\nEXTRAORDINARY CONQUERER\tEnglish\nEYES DRIVING\tEnglish\nFACTORY DRAGON\tEnglish\nFALCON VOLUME\tEnglish\nFAMILY SWEET\tEnglish\nFANTASIA PARK\tEnglish\nFANTASY TROOPERS\tEnglish\nFARGO GANDHI\tEnglish\nFATAL HAUNTED\tEnglish\nFEATHERS METAL\tEnglish\nFELLOWSHIP AUTUMN\tEnglish\nFERRIS MOTHER\tEnglish\nFEUD FROGMEN\tEnglish\nFEVER EMPIRE\tEnglish\nFICTION CHRISTMAS\tEnglish\nFIDDLER LOST\tEnglish\nFIDELITY DEVIL\tEnglish\nFIGHT JAWBREAKER\tEnglish\nFINDING ANACONDA\tEnglish\nFIRE WOLVES\tEnglish\nFIREBALL PHILADELPHIA\tEnglish\nFIREHOUSE VIETNAM\tEnglish\nFISH OPUS\tEnglish\nFLAMINGOS CONNECTICUT\tEnglish\nFLASH WARS\tEnglish\nFLATLINERS KILLER\tEnglish\nFLIGHT LIES\tEnglish\nFLINTSTONES HAPPINESS\tEnglish\nFLOATS GARDEN\tEnglish\nFLYING HOOK\tEnglish\nFOOL MOCKINGBIRD\tEnglish\nFOREVER CANDIDATE\tEnglish\nFORREST SONS\tEnglish\nFORRESTER COMANCHEROS\tEnglish\nFORWARD TEMPLE\tEnglish\nFRANKENSTEIN STRANGER\tEnglish\nFREAKY POCUS\tEnglish\nFREDDY STORM\tEnglish\nFREEDOM CLEOPATRA\tEnglish\nFRENCH HOLIDAY\tEnglish\nFRIDA SLIPPER\tEnglish\nFRISCO FORREST\tEnglish\nFROGMEN BREAKING\tEnglish\nFRONTIER CABIN\tEnglish\nFROST HEAD\tEnglish\nFUGITIVE MAGUIRE\tEnglish\nFULL FLATLINERS\tEnglish\nFURY MURDER\tEnglish\nGABLES METROPOLIS\tEnglish\nGALAXY SWEETHEARTS\tEnglish\nGAMES BOWFINGER\tEnglish\nGANDHI KWAI\tEnglish\nGANGS PRIDE\tEnglish\nGARDEN ISLAND\tEnglish\nGASLIGHT CRUSADE\tEnglish\nGATHERING CALENDAR\tEnglish\nGENTLEMEN STAGE\tEnglish\nGHOST GROUNDHOG\tEnglish\nGHOSTBUSTERS ELF\tEnglish\nGIANT TROOPERS\tEnglish\nGILBERT PELICAN\tEnglish\nGILMORE BOILED\tEnglish\nGLADIATOR WESTWARD\tEnglish\nGLASS DYING\tEnglish\nGLEAMING JAWBREAKER\tEnglish\nGLORY TRACY\tEnglish\nGO PURPLE\tEnglish\nGODFATHER DIARY\tEnglish\nGOLD RIVER\tEnglish\nGOLDFINGER SENSIBILITY\tEnglish\nGOLDMINE TYCOON\tEnglish\nGONE TROUBLE\tEnglish\nGOODFELLAS SALUTE\tEnglish\nGORGEOUS BINGO\tEnglish\nGOSFORD DONNIE\tEnglish\nGRACELAND DYNAMITE\tEnglish\nGRADUATE LORD\tEnglish\nGRAFFITI LOVE\tEnglish\nGRAIL FRANKENSTEIN\tEnglish\nGRAPES FURY\tEnglish\nGREASE YOUTH\tEnglish\nGREATEST NORTH\tEnglish\nGREEDY ROOTS\tEnglish\nGREEK EVERYONE\tEnglish\nGRINCH MASSAGE\tEnglish\nGRIT CLOCKWORK\tEnglish\nGROOVE FICTION\tEnglish\nGROSSE WONDERFUL\tEnglish\nGROUNDHOG UNCUT\tEnglish\nGUMP DATE\tEnglish\nGUN BONNIE\tEnglish\nGUNFIGHT MOON\tEnglish\nGUNFIGHTER MUSSOLINI\tEnglish\nGUYS FALCON\tEnglish\nHALF OUTFIELD\tEnglish\nHALL CASSIDY\tEnglish\nHALLOWEEN NUTS\tEnglish\nHAMLET WISDOM\tEnglish\nHANDICAP BOONDOCK\tEnglish\nHANGING DEEP\tEnglish\nHANKY OCTOBER\tEnglish\nHANOVER GALAXY\tEnglish\nHAPPINESS UNITED\tEnglish\nHARDLY ROBBERS\tEnglish\nHAROLD FRENCH\tEnglish\nHARPER DYING\tEnglish\nHARRY IDAHO\tEnglish\nHATE HANDICAP\tEnglish\nHAUNTED ANTITRUST\tEnglish\nHAUNTING PIANIST\tEnglish\nHAWK CHILL\tEnglish\nHEAD STRANGER\tEnglish\nHEARTBREAKERS BRIGHT\tEnglish\nHEAVEN FREEDOM\tEnglish\nHEAVENLY GUN\tEnglish\nHEAVYWEIGHTS BEAST\tEnglish\nHEDWIG ALTER\tEnglish\nHELLFIGHTERS SIERRA\tEnglish\nHIGH ENCINO\tEnglish\nHIGHBALL POTTER\tEnglish\nHILLS NEIGHBORS\tEnglish\nHOBBIT ALIEN\tEnglish\nHOCUS FRIDA\tEnglish\nHOLES BRANNIGAN\tEnglish\nHOLIDAY GAMES\tEnglish\nHOLLOW JEOPARDY\tEnglish\nHOLLYWOOD ANONYMOUS\tEnglish\nHOLOCAUST HIGHBALL\tEnglish\nHOLY TADPOLE\tEnglish\nHOME PITY\tEnglish\nHOMEWARD CIDER\tEnglish\nHOMICIDE PEACH\tEnglish\nHONEY TIES\tEnglish\nHOOK CHARIOTS\tEnglish\nHOOSIERS BIRDCAGE\tEnglish\nHOPE TOOTSIE\tEnglish\nHORN WORKING\tEnglish\nHORROR REIGN\tEnglish\nHOTEL HAPPINESS\tEnglish\nHOURS RAGE\tEnglish\nHOUSE DYNAMITE\tEnglish\nHUMAN GRAFFITI\tEnglish\nHUNCHBACK IMPOSSIBLE\tEnglish\nHUNGER ROOF\tEnglish\nHUNTER ALTER\tEnglish\nHUNTING MUSKETEERS\tEnglish\nHURRICANE AFFAIR\tEnglish\nHUSTLER PARTY\tEnglish\nHYDE DOCTOR\tEnglish\nHYSTERICAL GRAIL\tEnglish\nICE CROSSING\tEnglish\nIDAHO LOVE\tEnglish\nIDENTITY LOVER\tEnglish\nIDOLS SNATCHERS\tEnglish\nIGBY MAKER\tEnglish\nILLUSION AMELIE\tEnglish\nIMAGE PRINCESS\tEnglish\nIMPACT ALADDIN\tEnglish\nIMPOSSIBLE PREJUDICE\tEnglish\nINCH JET\tEnglish\nINDEPENDENCE HOTEL\tEnglish\nINDIAN LOVE\tEnglish\nINFORMER DOUBLE\tEnglish\nINNOCENT USUAL\tEnglish\nINSECTS STONE\tEnglish\nINSIDER ARIZONA\tEnglish\nINSTINCT AIRPORT\tEnglish\nINTENTIONS EMPIRE\tEnglish\nINTERVIEW LIAISONS\tEnglish\nINTOLERABLE INTENTIONS\tEnglish\nINTRIGUE WORST\tEnglish\nINVASION CYCLONE\tEnglish\nIRON MOON\tEnglish\nISHTAR ROCKETEER\tEnglish\nISLAND EXORCIST\tEnglish\nITALIAN AFRICAN\tEnglish\nJACKET FRISCO\tEnglish\nJADE BUNCH\tEnglish\nJAPANESE RUN\tEnglish\nJASON TRAP\tEnglish\nJAWBREAKER BROOKLYN\tEnglish\nJAWS HARRY\tEnglish\nJEDI BENEATH\tEnglish\nJEEPERS WEDDING\tEnglish\nJEKYLL FROGMEN\tEnglish\nJEOPARDY ENCINO\tEnglish\nJERICHO MULAN\tEnglish\nJERK PAYCHECK\tEnglish\nJERSEY SASSY\tEnglish\nJET NEIGHBORS\tEnglish\nJINGLE SAGEBRUSH\tEnglish\nJOON NORTHWEST\tEnglish\nJUGGLER HARDLY\tEnglish\nJUMANJI BLADE\tEnglish\nJUMPING WRATH\tEnglish\nJUNGLE CLOSER\tEnglish\nKANE EXORCIST\tEnglish\nKARATE MOON\tEnglish\nKENTUCKIAN GIANT\tEnglish\nKICK SAVANNAH\tEnglish\nKILL BROTHERHOOD\tEnglish\nKILLER INNOCENT\tEnglish\nKING EVOLUTION\tEnglish\nKISS GLORY\tEnglish\nKISSING DOLLS\tEnglish\nKNOCK WARLOCK\tEnglish\nKRAMER CHOCOLATE\tEnglish\nKWAI HOMEWARD\tEnglish\nLABYRINTH LEAGUE\tEnglish\nLADY STAGE\tEnglish\nLADYBUGS ARMAGEDDON\tEnglish\nLAMBS CINCINATTI\tEnglish\nLANGUAGE COWBOY\tEnglish\nLAWLESS VISION\tEnglish\nLAWRENCE LOVE\tEnglish\nLEAGUE HELLFIGHTERS\tEnglish\nLEATHERNECKS DWARFS\tEnglish\nLEBOWSKI SOLDIERS\tEnglish\nLEGALLY SECRETARY\tEnglish\nLEGEND JEDI\tEnglish\nLESSON CLEOPATRA\tEnglish\nLIAISONS SWEET\tEnglish\nLIBERTY MAGNIFICENT\tEnglish\nLICENSE WEEKEND\tEnglish\nLIES TREATMENT\tEnglish\nLIFE TWISTED\tEnglish\nLIGHTS DEER\tEnglish\nLION UNCUT\tEnglish\nLOATHING LEGALLY\tEnglish\nLOCK REAR\tEnglish\nLOLA AGENT\tEnglish\nLOLITA WORLD\tEnglish\nLONELY ELEPHANT\tEnglish\nLORD ARIZONA\tEnglish\nLOSE INCH\tEnglish\nLOSER HUSTLER\tEnglish\nLOST BIRD\tEnglish\nLOUISIANA HARRY\tEnglish\nLOVE SUICIDES\tEnglish\nLOVELY JINGLE\tEnglish\nLOVER TRUMAN\tEnglish\nLOVERBOY ATTACKS\tEnglish\nLUCK OPUS\tEnglish\nLUCKY FLYING\tEnglish\nLUKE MUMMY\tEnglish\nLUST LOCK\tEnglish\nMADIGAN DORADO\tEnglish\nMADISON TRAP\tEnglish\nMADNESS ATTACKS\tEnglish\nMADRE GABLES\tEnglish\nMAGIC MALLRATS\tEnglish\nMAGNIFICENT CHITTY\tEnglish\nMAGNOLIA FORRESTER\tEnglish\nMAGUIRE APACHE\tEnglish\nMAIDEN HOME\tEnglish\nMAJESTIC FLOATS\tEnglish\nMAKER GABLES\tEnglish\nMALKOVICH PET\tEnglish\nMALLRATS UNITED\tEnglish\nMALTESE HOPE\tEnglish\nMANCHURIAN CURTAIN\tEnglish\nMANNEQUIN WORST\tEnglish\nMARRIED GO\tEnglish\nMARS ROMAN\tEnglish\nMASK PEACH\tEnglish\nMASKED BUBBLE\tEnglish\nMASSACRE USUAL\tEnglish\nMASSAGE IMAGE\tEnglish\nMATRIX SNOWMAN\tEnglish\nMAUDE MOD\tEnglish\nMEET CHOCOLATE\tEnglish\nMEMENTO ZOOLANDER\tEnglish\nMENAGERIE RUSHMORE\tEnglish\nMERMAID INSECTS\tEnglish\nMETAL ARMAGEDDON\tEnglish\nMETROPOLIS COMA\tEnglish\nMICROCOSMOS PARADISE\tEnglish\nMIDNIGHT WESTWARD\tEnglish\nMIDSUMMER GROUNDHOG\tEnglish\nMIGHTY LUCK\tEnglish\nMILE MULAN\tEnglish\nMILLION ACE\tEnglish\nMINDS TRUMAN\tEnglish\nMINE TITANS\tEnglish\nMINORITY KISS\tEnglish\nMIRACLE VIRTUAL\tEnglish\nMISSION ZOOLANDER\tEnglish\nMIXED DOORS\tEnglish\nMOB DUFFEL\tEnglish\nMOCKINGBIRD HOLLYWOOD\tEnglish\nMOD SECRETARY\tEnglish\nMODEL FISH\tEnglish\nMODERN DORADO\tEnglish\nMONEY HAROLD\tEnglish\nMONSOON CAUSE\tEnglish\nMONSTER SPARTACUS\tEnglish\nMONTEREY LABYRINTH\tEnglish\nMONTEZUMA COMMAND\tEnglish\nMOON BUNCH\tEnglish\nMOONSHINE CABIN\tEnglish\nMOONWALKER FOOL\tEnglish\nMOSQUITO ARMAGEDDON\tEnglish\nMOTHER OLEANDER\tEnglish\nMOTIONS DETAILS\tEnglish\nMOULIN WAKE\tEnglish\nMOURNING PURPLE\tEnglish\nMOVIE SHAKESPEARE\tEnglish\nMULAN MOON\tEnglish\nMULHOLLAND BEAST\tEnglish\nMUMMY CREATURES\tEnglish\nMUPPET MILE\tEnglish\nMURDER ANTITRUST\tEnglish\nMUSCLE BRIGHT\tEnglish\nMUSIC BOONDOCK\tEnglish\nMUSKETEERS WAIT\tEnglish\nMUSSOLINI SPOILERS\tEnglish\nMYSTIC TRUMAN\tEnglish\nNAME DETECTIVE\tEnglish\nNASH CHOCOLAT\tEnglish\nNATIONAL STORY\tEnglish\nNATURAL STOCK\tEnglish\nNECKLACE OUTBREAK\tEnglish\nNEIGHBORS CHARADE\tEnglish\nNEMO CAMPUS\tEnglish\nNETWORK PEAK\tEnglish\nNEWSIES STORY\tEnglish\nNEWTON LABYRINTH\tEnglish\nNIGHTMARE CHILL\tEnglish\nNONE SPIKING\tEnglish\nNOON PAPI\tEnglish\nNORTH TEQUILA\tEnglish\nNORTHWEST POLISH\tEnglish\nNOTORIOUS REUNION\tEnglish\nNOTTING SPEAKEASY\tEnglish\nNOVOCAINE FLIGHT\tEnglish\nNUTS TIES\tEnglish\nOCTOBER SUBMARINE\tEnglish\nODDS BOOGIE\tEnglish\nOKLAHOMA JUMANJI\tEnglish\nOLEANDER CLUE\tEnglish\nOPEN AFRICAN\tEnglish\nOPERATION OPERATION\tEnglish\nOPPOSITE NECKLACE\tEnglish\nOPUS ICE\tEnglish\nORANGE GRAPES\tEnglish\nORDER BETRAYED\tEnglish\nORIENT CLOSER\tEnglish\nOSCAR GOLD\tEnglish\nOTHERS SOUP\tEnglish\nOUTBREAK DIVINE\tEnglish\nOUTFIELD MASSACRE\tEnglish\nOUTLAW HANKY\tEnglish\nOZ LIAISONS\tEnglish\nPACIFIC AMISTAD\tEnglish\nPACKER MADIGAN\tEnglish\nPAJAMA JAWBREAKER\tEnglish\nPANIC CLUB\tEnglish\nPANKY SUBMARINE\tEnglish\nPANTHER REDS\tEnglish\nPAPI NECKLACE\tEnglish\nPARADISE SABRINA\tEnglish\nPARIS WEEKEND\tEnglish\nPARK CITIZEN\tEnglish\nPARTY KNOCK\tEnglish\nPAST SUICIDES\tEnglish\nPATHS CONTROL\tEnglish\nPATIENT SISTER\tEnglish\nPATRIOT ROMAN\tEnglish\nPATTON INTERVIEW\tEnglish\nPAYCHECK WAIT\tEnglish\nPEACH INNOCENT\tEnglish\nPEAK FOREVER\tEnglish\nPEARL DESTINY\tEnglish\nPELICAN COMFORTS\tEnglish\nPERDITION FARGO\tEnglish\nPERFECT GROOVE\tEnglish\nPERSONAL LADYBUGS\tEnglish\nPET HAUNTING\tEnglish\nPHANTOM GLORY\tEnglish\nPHILADELPHIA WIFE\tEnglish\nPIANIST OUTFIELD\tEnglish\nPICKUP DRIVING\tEnglish\nPILOT HOOSIERS\tEnglish\nPINOCCHIO SIMON\tEnglish\nPIRATES ROXANNE\tEnglish\nPITTSBURGH HUNCHBACK\tEnglish\nPITY BOUND\tEnglish\nPIZZA JUMANJI\tEnglish\nPLATOON INSTINCT\tEnglish\nPLUTO OLEANDER\tEnglish\nPOCUS PULP\tEnglish\nPOLISH BROOKLYN\tEnglish\nPOLLOCK DELIVERANCE\tEnglish\nPOND SEATTLE\tEnglish\nPOSEIDON FOREVER\tEnglish\nPOTLUCK MIXED\tEnglish\nPOTTER CONNECTICUT\tEnglish\nPREJUDICE OLEANDER\tEnglish\nPRESIDENT BANG\tEnglish\nPRIDE ALAMO\tEnglish\nPRIMARY GLASS\tEnglish\nPRINCESS GIANT\tEnglish\nPRIVATE DROP\tEnglish\nPRIX UNDEFEATED\tEnglish\nPSYCHO SHRUNK\tEnglish\nPULP BEVERLY\tEnglish\nPUNK DIVORCE\tEnglish\nPURE RUNNER\tEnglish\nPURPLE MOVIE\tEnglish\nQUEEN LUKE\tEnglish\nQUEST MUSSOLINI\tEnglish\nQUILLS BULL\tEnglish\nRACER EGG\tEnglish\nRAGE GAMES\tEnglish\nRAGING AIRPLANE\tEnglish\nRAIDERS ANTITRUST\tEnglish\nRAINBOW SHOCK\tEnglish\nRANDOM GO\tEnglish\nRANGE MOONWALKER\tEnglish\nREAP UNFAITHFUL\tEnglish\nREAR TRADING\tEnglish\nREBEL AIRPORT\tEnglish\nRECORDS ZORRO\tEnglish\nREDEMPTION COMFORTS\tEnglish\nREDS POCUS\tEnglish\nREEF SALUTE\tEnglish\nREIGN GENTLEMEN\tEnglish\nREMEMBER DIARY\tEnglish\nREQUIEM TYCOON\tEnglish\nRESERVOIR ADAPTATION\tEnglish\nRESURRECTION SILVERADO\tEnglish\nREUNION WITCHES\tEnglish\nRIDER CADDYSHACK\tEnglish\nRIDGEMONT SUBMARINE\tEnglish\nRIGHT CRANES\tEnglish\nRINGS HEARTBREAKERS\tEnglish\nRIVER OUTLAW\tEnglish\nROAD ROXANNE\tEnglish\nROBBERS JOON\tEnglish\nROBBERY BRIGHT\tEnglish\nROCK INSTINCT\tEnglish\nROCKETEER MOTHER\tEnglish\nROCKY WAR\tEnglish\nROLLERCOASTER BRINGING\tEnglish\nROMAN PUNK\tEnglish\nROOF CHAMPION\tEnglish\nROOM ROMAN\tEnglish\nROOTS REMEMBER\tEnglish\nROSES TREASURE\tEnglish\nROUGE SQUAD\tEnglish\nROXANNE REBEL\tEnglish\nRUGRATS SHAKESPEARE\tEnglish\nRULES HUMAN\tEnglish\nRUN PACIFIC\tEnglish\nRUNAWAY TENENBAUMS\tEnglish\nRUNNER MADIGAN\tEnglish\nRUSH GOODFELLAS\tEnglish\nRUSHMORE MERMAID\tEnglish\nSABRINA MIDNIGHT\tEnglish\nSADDLE ANTITRUST\tEnglish\nSAGEBRUSH CLUELESS\tEnglish\nSAINTS BRIDE\tEnglish\nSALUTE APOLLO\tEnglish\nSAMURAI LION\tEnglish\nSANTA PARIS\tEnglish\nSASSY PACKER\tEnglish\nSATISFACTION CONFIDENTIAL\tEnglish\nSATURDAY LAMBS\tEnglish\nSATURN NAME\tEnglish\nSAVANNAH TOWN\tEnglish\nSCALAWAG DUCK\tEnglish\nSCARFACE BANG\tEnglish\nSCHOOL JACKET\tEnglish\nSCISSORHANDS SLUMS\tEnglish\nSCORPION APOLLO\tEnglish\nSEA VIRGIN\tEnglish\nSEABISCUIT PUNK\tEnglish\nSEARCHERS WAIT\tEnglish\nSEATTLE EXPECATIONS\tEnglish\nSECRET GROUNDHOG\tEnglish\nSECRETARY ROUGE\tEnglish\nSECRETS PARADISE\tEnglish\nSENSE GREEK\tEnglish\nSENSIBILITY REAR\tEnglish\nSEVEN SWARM\tEnglish\nSHAKESPEARE SADDLE\tEnglish\nSHANE DARKNESS\tEnglish\nSHANGHAI TYCOON\tEnglish\nSHAWSHANK BUBBLE\tEnglish\nSHEPHERD MIDSUMMER\tEnglish\nSHINING ROSES\tEnglish\nSHIP WONDERLAND\tEnglish\nSHOCK CABIN\tEnglish\nSHOOTIST SUPERFLY\tEnglish\nSHOW LORD\tEnglish\nSHREK LICENSE\tEnglish\nSHRUNK DIVINE\tEnglish\nSIDE ARK\tEnglish\nSIEGE MADRE\tEnglish\nSIERRA DIVIDE\tEnglish\nSILENCE KANE\tEnglish\nSILVERADO GOLDFINGER\tEnglish\nSIMON NORTH\tEnglish\nSINNERS ATLANTIS\tEnglish\nSISTER FREDDY\tEnglish\nSKY MIRACLE\tEnglish\nSLACKER LIAISONS\tEnglish\nSLEEPING SUSPECTS\tEnglish\nSLEEPLESS MONSOON\tEnglish\nSLEEPY JAPANESE\tEnglish\nSLEUTH ORIENT\tEnglish\nSLING LUKE\tEnglish\nSLIPPER FIDELITY\tEnglish\nSLUMS DUCK\tEnglish\nSMILE EARRING\tEnglish\nSMOKING BARBARELLA\tEnglish\nSMOOCHY CONTROL\tEnglish\nSNATCH SLIPPER\tEnglish\nSNATCHERS MONTEZUMA\tEnglish\nSNOWMAN ROLLERCOASTER\tEnglish\nSOLDIERS EVOLUTION\tEnglish\nSOMETHING DUCK\tEnglish\nSONG HEDWIG\tEnglish\nSONS INTERVIEW\tEnglish\nSORORITY QUEEN\tEnglish\nSOUP WISDOM\tEnglish\nSOUTH WAIT\tEnglish\nSPARTACUS CHEAPER\tEnglish\nSPEAKEASY DATE\tEnglish\nSPEED SUIT\tEnglish\nSPICE SORORITY\tEnglish\nSPIKING ELEMENT\tEnglish\nSPINAL ROCKY\tEnglish\nSPIRIT FLINTSTONES\tEnglish\nSPIRITED CASUALTIES\tEnglish\nSPLASH GUMP\tEnglish\nSPLENDOR PATTON\tEnglish\nSPOILERS HELLFIGHTERS\tEnglish\nSPY MILE\tEnglish\nSQUAD FISH\tEnglish\nSTAGE WORLD\tEnglish\nSTAGECOACH ARMAGEDDON\tEnglish\nSTALLION SUNDANCE\tEnglish\nSTAMPEDE DISTURBING\tEnglish\nSTAR OPERATION\tEnglish\nSTATE WASTELAND\tEnglish\nSTEEL SANTA\tEnglish\nSTEERS ARMAGEDDON\tEnglish\nSTEPMOM DREAM\tEnglish\nSTING PERSONAL\tEnglish\nSTOCK GLASS\tEnglish\nSTONE FIRE\tEnglish\nSTORM HAPPINESS\tEnglish\nSTORY SIDE\tEnglish\nSTRAIGHT HOURS\tEnglish\nSTRANGELOVE DESIRE\tEnglish\nSTRANGER STRANGERS\tEnglish\nSTRANGERS GRAFFITI\tEnglish\nSTREAK RIDGEMONT\tEnglish\nSTREETCAR INTENTIONS\tEnglish\nSTRICTLY SCARFACE\tEnglish\nSUBMARINE BED\tEnglish\nSUGAR WONKA\tEnglish\nSUICIDES SILENCE\tEnglish\nSUIT WALLS\tEnglish\nSUMMER SCARFACE\tEnglish\nSUN CONFESSIONS\tEnglish\nSUNDANCE INVASION\tEnglish\nSUNRISE LEAGUE\tEnglish\nSUNSET RACER\tEnglish\nSUPER WYOMING\tEnglish\nSUPERFLY TRIP\tEnglish\nSUSPECTS QUILLS\tEnglish\nSWARM GOLD\tEnglish\nSWEDEN SHINING\tEnglish\nSWEET BROTHERHOOD\tEnglish\nSWEETHEARTS SUSPECTS\tEnglish\nTADPOLE PARK\tEnglish\nTALENTED HOMICIDE\tEnglish\nTARZAN VIDEOTAPE\tEnglish\nTAXI KICK\tEnglish\nTEEN APOLLO\tEnglish\nTELEGRAPH VOYAGE\tEnglish\nTELEMARK HEARTBREAKERS\tEnglish\nTEMPLE ATTRACTION\tEnglish\nTENENBAUMS COMMAND\tEnglish\nTEQUILA PAST\tEnglish\nTERMINATOR CLUB\tEnglish\nTEXAS WATCH\tEnglish\nTHEORY MERMAID\tEnglish\nTHIEF PELICAN\tEnglish\nTHIN SAGEBRUSH\tEnglish\nTIES HUNGER\tEnglish\nTIGHTS DAWN\tEnglish\nTIMBERLAND SKY\tEnglish\nTITANIC BOONDOCK\tEnglish\nTITANS JERK\tEnglish\nTOMATOES HELLFIGHTERS\tEnglish\nTOMORROW HUSTLER\tEnglish\nTOOTSIE PILOT\tEnglish\nTORQUE BOUND\tEnglish\nTOURIST PELICAN\tEnglish\nTOWERS HURRICANE\tEnglish\nTOWN ARK\tEnglish\nTRACY CIDER\tEnglish\nTRADING PINOCCHIO\tEnglish\nTRAFFIC HOBBIT\tEnglish\nTRAIN BUNCH\tEnglish\nTRAINSPOTTING STRANGERS\tEnglish\nTRAMP OTHERS\tEnglish\nTRANSLATION SUMMER\tEnglish\nTRAP GUYS\tEnglish\nTREASURE COMMAND\tEnglish\nTREATMENT JEKYLL\tEnglish\nTRIP NEWTON\tEnglish\nTROJAN TOMORROW\tEnglish\nTROOPERS METAL\tEnglish\nTROUBLE DATE\tEnglish\nTRUMAN CRAZY\tEnglish\nTURN STAR\tEnglish\nTUXEDO MILE\tEnglish\nTWISTED PIRATES\tEnglish\nTYCOON GATHERING\tEnglish\nUNBREAKABLE KARATE\tEnglish\nUNCUT SUICIDES\tEnglish\nUNDEFEATED DALMATIONS\tEnglish\nUNFAITHFUL KILL\tEnglish\nUNFORGIVEN ZOOLANDER\tEnglish\nUNITED PILOT\tEnglish\nUNTOUCHABLES SUNRISE\tEnglish\nUPRISING UPTOWN\tEnglish\nUPTOWN YOUNG\tEnglish\nUSUAL UNTOUCHABLES\tEnglish\nVACATION BOONDOCK\tEnglish\nVALENTINE VANISHING\tEnglish\nVALLEY PACKER\tEnglish\nVAMPIRE WHALE\tEnglish\nVANILLA DAY\tEnglish\nVANISHED GARDEN\tEnglish\nVANISHING ROCKY\tEnglish\nVARSITY TRIP\tEnglish\nVELVET TERMINATOR\tEnglish\nVERTIGO NORTHWEST\tEnglish\nVICTORY ACADEMY\tEnglish\nVIDEOTAPE ARSENIC\tEnglish\nVIETNAM SMOOCHY\tEnglish\nVILLAIN DESPERATE\tEnglish\nVIRGIN DAISY\tEnglish\nVIRGINIAN PLUTO\tEnglish\nVIRTUAL SPOILERS\tEnglish\nVISION TORQUE\tEnglish\nVOICE PEACH\tEnglish\nVOLCANO TEXAS\tEnglish\nVOLUME HOUSE\tEnglish\nVOYAGE LEGALLY\tEnglish\nWAGON JAWS\tEnglish\nWAIT CIDER\tEnglish\nWAKE JAWS\tEnglish\nWALLS ARTIST\tEnglish\nWANDA CHAMBER\tEnglish\nWAR NOTTING\tEnglish\nWARDROBE PHANTOM\tEnglish\nWARLOCK WEREWOLF\tEnglish\nWARS PLUTO\tEnglish\nWASH HEAVENLY\tEnglish\nWASTELAND DIVINE\tEnglish\nWATCH TRACY\tEnglish\nWATERFRONT DELIVERANCE\tEnglish\nWATERSHIP FRONTIER\tEnglish\nWEDDING APOLLO\tEnglish\nWEEKEND PERSONAL\tEnglish\nWEREWOLF LOLA\tEnglish\nWEST LION\tEnglish\nWESTWARD SEABISCUIT\tEnglish\nWHALE BIKINI\tEnglish\nWHISPERER GIANT\tEnglish\nWIFE TURN\tEnglish\nWILD APOLLO\tEnglish\nWILLOW TRACY\tEnglish\nWIND PHANTOM\tEnglish\nWINDOW SIDE\tEnglish\nWISDOM WORKER\tEnglish\nWITCHES PANIC\tEnglish\nWIZARD COLDBLOODED\tEnglish\nWOLVES DESIRE\tEnglish\nWOMEN DORADO\tEnglish\nWON DARES\tEnglish\nWONDERFUL DROP\tEnglish\nWONDERLAND CHRISTMAS\tEnglish\nWONKA SEA\tEnglish\nWORDS HUNTER\tEnglish\nWORKER TARZAN\tEnglish\nWORKING MICROCOSMOS\tEnglish\nWORLD LEATHERNECKS\tEnglish\nWORST BANGER\tEnglish\nWRATH MILE\tEnglish\nWRONG BEHAVIOR\tEnglish\nWYOMING STORM\tEnglish\nYENTL IDAHO\tEnglish\nYOUNG LANGUAGE\tEnglish\nYOUTH KICK\tEnglish\nZHIVAGO CORE\tEnglish\nZOOLANDER FICTION\tEnglish\nZORRO ARK\tEnglish\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.sql\nselect CustomerVar.first_name, CityVar.city from CustomerVar\njoin AddressVar on AddressVar.address_id = CustomerVar.address_id\njoin CityVar on CityVar.city_id = AddressVar.city_id\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-09-19T05:18:02+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "customer_id0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "store_id1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "first_name2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "last_name3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "email4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "address_id5",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "active6",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "create_date7",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "last_update8",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "first_name": "string",
+                      "city": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "customer_id": "string",
+                      "store_id": "string",
+                      "first_name": "string",
+                      "last_name": "string",
+                      "email": "string",
+                      "address_id": "string",
+                      "active": "string",
+                      "create_date": "string",
+                      "last_update": "string",
+                      "address": "string",
+                      "address2": "string",
+                      "district": "string",
+                      "city_id": "string",
+                      "postal_code": "string",
+                      "phone": "string",
+                      "location": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=110",
+              "$$hashKey": "object:61758"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=111",
+              "$$hashKey": "object:61759"
+            },
+            {
+              "jobUrl": "http://852c5cafc39e:4040/jobs/job?id=112",
+              "$$hashKey": "object:61760"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663560643440_851521609",
+      "id": "paragraph_1663560643440_851521609",
+      "dateCreated": "2022-09-19T04:10:43+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:40587",
+      "dateFinished": "2022-09-19T05:17:59+0000",
+      "dateStarted": "2022-09-19T05:17:59+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "first_name\tcity\nMARY\tSasebo\nPATRICIA\tSan Bernardino\nLINDA\tAthenai\nBARBARA\tMyingyan\nELIZABETH\tNantou\nJENNIFER\tLaredo\nMARIA\tKragujevac\nSUSAN\tHamilton\nMARGARET\tMasqat\nDOROTHY\tEsfahan\nLISA\tSagamihara\nNANCY\tYamuna Nagar\nKAREN\tOsmaniye\nBETTY\tCitrus Heights\nHELEN\tBhopal\nSANDRA\tSouthend-on-Sea\nDONNA\tElista\nCAROL\tKaduna\nRUTH\tKimberley\nSHARON\tMardan\nMICHELLE\tTangail\nLAURA\tSal\nSARAH\tLiepaja\nKIMBERLY\tCrdoba\nDEBORAH\tShikarpur\nJESSICA\tCitt del Vaticano\nSHIRLEY\tDavao\nCYNTHIA\tMunger (Monghyr)\nANGELA\tShimonoseki\nMELISSA\tLungtan\nBRENDA\tKamarhati\nAMY\tJhansi\nANNA\tAlessandria\nREBECCA\tKurashiki\nVIRGINIA\tToulouse\nKATHLEEN\tArak\nPAMELA\tNanyang\nMARTHA\tChisinau\nDEBRA\tVila Velha\nAMANDA\tNador\nSTEPHANIE\tYerevan\nCAROLYN\tPak Kret\nCHRISTINE\tFaaa\nMARIE\tLipetsk\nJANET\tAntofagasta\nCATHERINE\tMoscow\nFRANCES\tJuazeiro do Norte\nANN\tNiznekamsk\nJOYCE\tJedda\nDIANE\tOmdurman\nALICE\tFontana\nJULIE\tA Corua (La Corua)\nHEATHER\tNagareyama\nTERESA\tIwakuni\nDORIS\tBalaiha\nGLORIA\tPapeete\nEVELYN\tVaduz\nJEAN\tKuching\nCHERYL\tMysore\nMILDRED\tJaipur\nKATHERINE\tBasel\nJOAN\tSaint Louis\nASHLEY\tLincoln\nJUDITH\tDaxian\nROSE\tCayenne\nJANICE\tMalm\nKELLY\tXiangtan\nNICOLE\tShivapuri\nJUDY\tBchar\nCHRISTINA\tal-Hawiya\nKATHY\tBaybay\nTHERESA\tTaguig\nBEVERLY\tChiayi\nDENISE\tRio Claro\nTAMMY\tChanghwa\nIRENE\tPavlodar\nJANE\tAraatuba\nLORI\tRae Bareli\nRACHEL\tKamakura\nMARILYN\tIfe\nANDREA\tMahajanga\nKATHRYN\tSimferopol\nLOUISE\tSprings\nSARA\tAtlixco\nANNE\tBradford\nJACQUELINE\tSongkhla\nWANDA\tSincelejo\nBONNIE\tCheju\nJULIA\tLa Plata\nRUBY\tMeixian\nLOIS\tBandar Seri Begawan\nTINA\tGoinia\nPHYLLIS\tZalantun\nNORMA\tBislig\nPAULA\tPathankot\nDIANA\tAugusta-Richmond County\nANNIE\tTete\nLILLIAN\tal-Ayn\nEMILY\tKimchon\nROBIN\tJelets\nPEGGY\tAbha\nCRYSTAL\tAshdod\nGLADYS\tIlorin\nRITA\tToulon\nDAWN\tFunafuti\nCONNIE\tIvanovo\nFLORENCE\tMerlo\nTRACY\tHuixquilucan\nEDNA\tKlerksdorp\nTIFFANY\tEnshi\nCARMEN\tCaracas\nROSA\tLancaster\nCINDY\tCuman\nGRACE\tDuisburg\nWENDY\tNezahualcyotl\nVICTORIA\tPemalang\nEDITH\tGandhinagar\nKIM\tGrand Prairie\nSHERRY\tShubra al-Khayma\nSYLVIA\tDos Quebradas\nJOSEPHINE\tEtawah\nTHELMA\tLima\nSHANNON\tVaranasi (Benares)\nSHEILA\tKtahya\nETHEL\tBoksburg\nELLEN\tPo\nELAINE\tSmolensk\nMARJORIE\tJastrzebie-Zdrj\nCARRIE\tLiaocheng\nCHARLOTTE\tguas Lindas de Gois\nMONICA\tMukateve\nESTHER\tBotshabelo\nPAULINE\tTorren\nEMMA\tQalyub\nJUANITA\tPune\nANITA\tHubli-Dharwad\nRHONDA\tApeldoorn\nHAZEL\tHohhot\nAMBER\tTouliu\nEVA\tClarksville\nDEBBIE\tFukuyama\nAPRIL\tDundee\nLESLIE\tKilis\nCLARA\tMolodetno\nLUCILLE\tSoshanguve\nJAMIE\tSterling Heights\nJOANNE\tUrawa\nELEANOR\tSaint-Denis\nVALERIE\tBrockton\nDANIELLE\tHidalgo\nMEGAN\tLaiwu\nALICIA\tNagaon\nSUZANNE\tJakarta\nMICHELE\tYuncheng\nGAIL\tBern\nBERTHA\tOndo\nDARLENE\tPyongyang\nVERONICA\tGreensboro\nJILL\tLinz\nERIN\tLjubertsy\nGERALDINE\tTel Aviv-Jaffa\nLAUREN\tLe Mans\nCATHY\tKakamigahara\nJOANN\tTarsus\nLORRAINE\tHami\nLYNN\tLilongwe\nSALLY\tChandrapur\nREGINA\tJinchang\nERICA\tPingxiang\nBEATRICE\tUdaipur\nDOLORES\tIpoh\nBERNICE\tBatman\nAUDREY\tGraz\nYVONNE\tOcumare del Tuy\nANNETTE\tAllappuzha (Alleppey)\nJUNE\tSkikda\nSAMANTHA\tMatamoros\nMARION\tSanta Brbara dOeste\nDANA\tKirovo-Tepetsk\nSTACY\tPereira\nANA\tMemphis\nRENEE\tCompton\nIDA\tLuzinia\nVIVIAN\ts-Hertogenbosch\nROBERTA\tShahr-e Kord\nHOLLY\tHaldia\nBRITTANY\tSumy\nMELANIE\tBayugan\nLORETTA\tOshawa\nYOLANDA\tTabora\nJEANETTE\tNovoterkassk\nLAURIE\tFirozabad\nKATIE\tKisumu\nKRISTEN\tHino\nVANESSA\tSiegen\nALMA\tMannheim\nSUE\tChangzhou\nELSIE\tIkerre\nBETH\tHaiphong\nJEANNE\tAshgabat\nVICKI\tWitten\nCARLA\tBhusawal\nTARA\tGorontalo\nROSEMARY\tUsak\nEILEEN\tCiudad del Este\nTERRI\tBlumenau\nGERTRUDE\tNuuk\nLUCY\tBalurghat\nTONYA\tBhilwara\nELLA\tAden\nSTACEY\tFuyu\nWILMA\tBellevue\nGINA\tTaizz\nKRISTIN\tSunnyvale\nJESSIE\tStara Zagora\nNATALIE\tAparecida de Goinia\nAGNES\tSambhal\nVERA\tKabul\nWILLIE\tVicente Lpez\nCHARLENE\tZanzibar\nBESSIE\tSyrakusa\nDELORES\tJaroslavl\nMELINDA\tMandi Bahauddin\nPEARL\tJodhpur\nARLENE\tAmbattur\nMAUREEN\tAsuncin\nCOLLEEN\tSaarbrcken\nALLISON\tPhnom Penh\nTAMARA\tAnpolis\nJOY\tBotosani\nGEORGIA\tUttarpara-Kotrung\nCONSTANCE\tZaria\nLILLIE\tIdfu\nCLAUDIA\tJalib al-Shuyukh\nJACKIE\tBuenaventura\nMARCIA\tTanza\nTANYA\tNaju\nNELLIE\tShimoga\nMINNIE\tCiomas\nMARLENE\tIwaki\nHEIDI\tXiangfan\nGLENDA\tQinhuangdao\nLYDIA\tSan Miguel de Tucumn\nVIOLA\tLapu-Lapu\nCOURTNEY\tUijongbu\nMARIAN\tMaring\nSTELLA\tCoacalco de Berriozbal\nCAROLINE\tTallahassee\nDORA\tTianjin\nJO\tOyo\nVICKIE\tHalle/Saale\nMATTIE\tLondon\nTERRY\tMiyakonojo\nMAXINE\tPoos de Caldas\nIRMA\tHagonoy\nMABEL\tMonywa\nMARSHA\tBeira\nMYRTLE\tSantiago de los Caballeros\nLENA\tHalisahar\nCHRISTY\tDatong\nDEANNA\tTuguegarao\nPATSY\tPortoviejo\nHILDA\tMandaluyong\nGWENDOLYN\tHigashiosaka\nJENNIE\tOlomouc\nNORA\tSalzburg\nMARGIE\tLengshuijiang\nNINA\tPalghat (Palakkad)\nCASSANDRA\tSalinas\nLEAH\tKalisz\nPENNY\tKumbakonam\nKAY\tYantai\nPRISCILLA\tSalamanca\nNAOMI\tKarnal\nCAROLE\tPeoria\nBRANDY\tWarren\nOLGA\tOgbomosho\nBILLIE\tInegl\nDIANNE\tTabriz\nTRACEY\tOwo\nLEONA\tFuzhou\nJENNY\tPonce\nFELICIA\tKorla\nSONIA\tBenin City\nMIRIAM\tOtsu\nVELMA\tEffon-Alaiye\nBECKY\tTambaram\nBOBBIE\tValle de Santiago\nVIOLET\tKowloon and New Kowloon\nKRISTINA\tValle de la Pascua\nTONI\tRoanoke\nMISTY\tSharja\nMAE\tDonostia-San Sebastin\nSHELLY\tDayton\nDAISY\tKolpino\nRAMONA\tPatiala\nSHERRI\tAhmadnagar\nERIKA\tOulu\nJAMES\tHiroshima\nJOHN\tParbhani\nROBERT\tKaliningrad\nMICHAEL\tTiefa\nWILLIAM\tSanaa\nDAVID\tCallao\nRICHARD\tArlington\nCHARLES\tSungai Petani\nJOSEPH\tAngra dos Reis\nTHOMAS\tKansas City\nCHRISTOPHER\tBrescia\nDANIEL\tIbirit\nPAUL\tKursk\nMARK\tTabuk\nDONALD\tEzhou\nGEORGE\tSorocaba\nKENNETH\tBat Yam\nSTEVEN\tMiraj\nEDWARD\tTrshavn\nBRIAN\tBydgoszcz\nRONALD\tSan Felipe del Progreso\nANTHONY\tTafuna\nKEVIN\tBirgunj\nJASON\tBaha Blanca\nMATTHEW\tCuautla\nGARY\tYuzhou\nTIMOTHY\tBraslia\nJOSE\tKingstown\nLARRY\tAdana\nJEFFREY\tCiparay\nFRANK\tJamalpur\nSCOTT\tAurora\nERIC\tSanta F\nSTEPHEN\tDhaka\nANDREW\tBaku\nRAYMOND\tSumqayit\nGREGORY\tSousse\nJOSHUA\tRampur\nJERRY\tOnomichi\nDENNIS\tPaarl\nWALTER\tXinxiang\nPATRICK\tHanoi\nPETER\tEde\nHAROLD\tBoa Vista\nDOUGLAS\tMexicali\nHENRY\tNukualofa\nCARL\tSan Lorenzo\nARTHUR\tMaikop\nRYAN\tDaugavpils\nROGER\tHsichuh\nJOE\tImus\nJUAN\tTeboksary\nJACK\tZeleznogorsk\nALBERT\tBamenda\nJONATHAN\tPachuca de Soto\nJUSTIN\tSanto Andr\nTERRY\tMatsue\nGERALD\tSatna\nKEITH\tBratislava\nSAMUEL\tRanchi\nWILLIE\tAlmirante Brown\nRALPH\tArecibo\nLAWRENCE\tYaound\nNICHOLAS\tBelm\nROY\tNyeri\nBENJAMIN\tGuadalajara\nBRUCE\tOkinawa\nBRANDON\tBalikesir\nADAM\tAdoni\nHARRY\tNajafabad\nFRED\tJurez\nWAYNE\tGulbarga\nBILLY\tCabuyao\nSTEVE\tProbolinggo\nLOUIS\tTanauan\nJEREMY\tVitria de Santo Anto\nAARON\tMwene-Ditu\nRANDY\tKurgan\nHOWARD\tKermanshah\nEUGENE\tShenzhen\nCARLOS\tBhavnagar\nRUSSELL\tTychy\nBOBBY\tSouth Hill\nVICTOR\tManchester\nMARTIN\tNamibe\nERNEST\tHuaian\nPHILLIP\tTama\nTODD\tKamjanets-Podilskyi\nJESSE\tLubumbashi\nCRAIG\tCavite\nALAN\tEmeishan\nSHAWN\tNakhon Sawan\nCLARENCE\tIzumisano\nSEAN\tAddis Abeba\nPHILIP\tKorolev\nCHRIS\tGijn\nJOHNNY\tal-Qadarif\nEARL\tIwatsuki\nJIMMY\tAtinsk\nANTONIO\tBag\nDANNY\tOkara\nBRYAN\tDallas\nTONY\tKoriyama\nLUIS\tBrest\nMIKE\tValparai\nSTANLEY\tOmiya\nLEONARD\tTandil\nNATHAN\tCharlotte Amalie\nDALE\tRustenburg\nMANUEL\tJaffna\nRODNEY\tDeba Habe\nCURTIS\tRichmond Hill\nNORMAN\tCianjur\nALLEN\tHoshiarpur\nMARVIN\tBerhampore (Baharampur)\nVINCENT\tAllende\nGLENN\tAmersfoort\nJEFFERY\tDadu\nTRAVIS\tal-Qatif\nJEFF\tSan Felipe de Puerto Plata\nCHAD\tKatihar\nJACOB\tEl Monte\nLEE\tPudukkottai\nMELVIN\tLaohekou\nALFRED\tSawhaj\nKYLE\tShanwei\nFRANCIS\tSan Juan Bautista Tuxtepec\nBRADLEY\tPurnea (Purnia)\nJESUS\tGuaruj\nHERBERT\tSyktyvkar\nFREDERICK\tTsuyama\nRAY\tDzerzinsk\nJOEL\tSucre\nEDWIN\tNewcastle\nDON\tNaala-Porto\nEDDIE\tOzamis\nRICKY\tJunan\nTROY\tVancouver\nRANDALL\tLa Romana\nBARRY\tKitwe\nALEXANDER\tBergamo\nBERNARD\tDhule (Dhulia)\nMARIO\tBatna\nLEROY\tTongliao\nFRANCISCO\tSo Leopoldo\nMARCUS\tTartu\nMICHEAL\tEscobar\nTHEODORE\tUluberia\nCLIFFORD\tNabereznyje Telny\nMIGUEL\tErlangen\nOSCAR\tSirjan\nJAY\tSurakarta\nJIM\tEl Fuerte\nTOM\tAbu Dhabi\nCALVIN\tMaracabo\nALEX\tUruapan\nJON\tEl Alto\nRONNIE\tZiguinchor\nBILL\tRockford\nLLOYD\tTegal\nTOMMY\tQomsheh\nLEON\tFlorencia\nDEREK\tGingoog\nWARREN\tUsolje-Sibirskoje\nDARRELL\tHalifax\nJEROME\tRancagua\nFLOYD\tZapopan\nLEO\tDongying\nALVIN\tCuauhtmoc\nTIM\tBijapur\nWESLEY\tOurense (Orense)\nGORDON\tHodeida\nDEAN\tJohannesburg\nGREG\tNam Dinh\nJORGE\tLhokseumawe\nDUSTIN\tEmmen\nPEDRO\tostka\nDERRICK\tGatineau\nDAN\tStockport\nLEWIS\tAshqelon\nZACHARY\tAkron\nCOREY\tGaziantep\nHERMAN\tMwanza\nMAURICE\tCoatzacoalcos\nVERNON\tDenizli\nROBERTO\tYinchuan\nCLYDE\tShaoguan\nGLEN\tAcua\nHECTOR\tPjatigorsk\nSHANE\tLa Paz\nRICARDO\tOkayama\nSAM\tSogamoso\nRICK\tMit Ghamr\nLESTER\tKanchrapara\nBRENT\tSultanbeyli\nRAMON\tRobamba\nCHARLIE\tBaiyin\nTYLER\tRizhao\nGILBERT\tYork\nGENE\tSalala\nMARC\tBrindisi\nREGINALD\tMadiun\nRUBEN\tLublin\nBRETT\tSiliguri (Shiliguri)\nANGEL\tUeda\nNATHANIEL\tJoliet\nRAFAEL\tTalavera\nLESLIE\tPontianak\nEDGAR\tEskisehir\nMILTON\tVijayawada\nRAUL\tChapra\nBEN\tKamyin\nCHESTER\tSuihua\nCECIL\tLondon\nDUANE\tYangor\nFRANKLIN\tZaoyang\nANDRE\tCoquimbo\nELMER\tBattambang\nBRAD\tChungho\nGABRIEL\tSivas\nRON\tIsesaki\nMITCHELL\tNha Trang\nROLAND\tYingkou\nARNOLD\tSanta Rosa\nHARVEY\tVinh\nJARED\tPurwakarta\nADRIAN\tUdine\nKARL\tCape Coral\nCORY\tMogiljov\nCLAUDE\tBenguela\nERIK\tBhimavaram\nDARRYL\tEzeiza\nJAMIE\tKuwana\nNEIL\tCam Ranh\nJESSIE\tBinzhou\nCHRISTIAN\tAmroha\nJAVIER\tNDjamna\nFERNANDO\tTonghae\nCLINTON\tAurora\nTED\tBaicheng\nMATHEW\tValencia\nTYRONE\tRuse\nDARREN\tLivorno\nLONNIE\tPangkal Pinang\nLANCE\tBeni-Mellal\nCODY\tSo Bernardo do Campo\nJULIO\tKonotop\nKELLY\tSanya\nKURT\tKanazawa\nALLAN\tTarlac\nNELSON\tSantiago de Compostela\nGUY\tZhoushan\nCLAYTON\tAlvorada\nHUGH\tHaining\nMAX\tNovi Sad\nDWAYNE\tRajkot\nDWIGHT\tChatsworth\nARMANDO\tSouthport\nFELIX\tVilnius\nJIMMIE\tWroclaw\nEVERETT\tBilbays\nJORDAN\tAvellaneda\nIAN\tGarland\nWALLACE\tSokoto\nKEN\tBucuresti\nBOB\tXintai\nJAIME\tHunuco\nCASEY\tTokat\nALFREDO\tSerpuhov\nALBERTO\tBarcelona\nDAVE\tLeshan\nIVAN\tMonclova\nJOHNNIE\tPlock\nSIDNEY\tCzestochowa\nBYRON\tZhezqazghan\nJULIAN\tAkishima\nISAAC\tCuernavaca\nMORRIS\tFengshan\nCLIFTON\tTanshui\nWILLARD\tCarmen\nDARYL\tMosul\nROSS\tIligan\nVIRGIL\tJos Azueta\nANDY\tHuejutla de Reyes\nMARSHALL\tSouthampton\nSALVADOR\tBanjul\nPERRY\tQuilmes\nKIRK\tTsaotun\nSERGIO\tCelaya\nMARION\tWeifang\nTRACY\tLoja\nSETH\tal-Manama\nKENT\tJuiz de Fora\nTERRANCE\tSzkesfehrvr\nRENE\tGarden Grove\nEDUARDO\tJining\nTERRENCE\tJinzhou\nENRIQUE\tPatras\nFREDDIE\tSullana\nWADE\tLausanne\nAUSTIN\tTieli\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1663560704776_105470317",
+      "id": "paragraph_1663560704776_105470317",
+      "dateCreated": "2022-09-19T04:11:44+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:40662"
+    }
+  ],
+  "name": "ATP 2",
+  "id": "2HDBFUP53",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/ATP 2"
+}
